@@ -1,3 +1,40 @@
+// Theme toggle (light default, optional dark mode via navbar symbol)
+const themeToggle = document.getElementById('theme-toggle');
+const THEME_STORAGE_KEY = 'agslaw-theme';
+
+function applyTheme(theme) {
+  const isDark = theme === 'dark';
+  if (isDark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+
+  if (themeToggle) {
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    themeToggle.setAttribute(
+      'aria-label',
+      isDark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap'
+    );
+    themeToggle.setAttribute('title', isDark ? 'Mode Terang' : 'Mode Gelap');
+  }
+}
+
+if (themeToggle) {
+  const initialTheme =
+    document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  applyTheme(initialTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const nextTheme =
+      document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme);
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    } catch (e) {}
+  });
+}
+
 // Mobile navigation drawer, scroll choreography & interactive components
 
 const menuToggle = document.getElementById('menu-toggle');
