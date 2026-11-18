@@ -375,3 +375,128 @@ if (faqItems.length > 0) {
     });
   });
 }
+
+// Hero Metrics Choreography (Staggered Entrance, easeOutExpo Count-Up, Top Hairline Gauge & Ambient Spotlight)
+const heroMetricsStrip = document.querySelector('.hero-metrics');
+const heroMetricCells = Array.from(document.querySelectorAll('.hero-metric'));
+
+if (heroMetricsStrip && heroMetricCells.length > 0) {
+  let hasAnimatedMetrics = false;
+  let spotlightIdx = 0;
+  let spotlightTimerId = null;
+  let isPointerInsideStrip = false;
+
+  const setActiveSpotlight = (targetIdx) => {
+    heroMetricCells.forEach((cell, idx) => {
+      cell.classList.toggle('is-spotlight', idx === targetIdx);
+    });
+  };
+
+  const startAmbientSpotlight = () => {
+    if (prefersReducedMotion || spotlightTimerId) return;
+    setActiveSpotlight(spotlightIdx);
+    spotlightTimerId = window.setInterval(() => {
+      if (isPointerInsideStrip) return;
+      spotlightIdx = (spotlightIdx + 1) % heroMetricCells.length;
+      setActiveSpotlight(spotlightIdx);
+    }, 3200);
+  };
+
+  heroMetricCells.forEach((cell, idx) => {
+    cell.style.setProperty('--metric-delay', `${idx * 110}ms`);
+
+    cell.addEventListener('pointerenter', () => {
+      isPointerInsideStrip = true;
+      spotlightIdx = idx;
+      setActiveSpotlight(idx);
+    });
+
+    cell.addEventListener('pointermove', (event) => {
+      const rect = cell.getBoundingClientRect();
+      const relX = ((event.clientX - rect.left) / Math.max(1, rect.width)) * 100;
+      const relY = ((event.clientY - rect.top) / Math.max(1, rect.height)) * 100;
+      cell.style.setProperty('--mouse-x', `${relX.toFixed(1)}%`);
+      cell.style.setProperty('--mouse-y', `${relY.toFixed(1)}%`);
+    });
+  });
+
+  heroMetricsStrip.addEventListener('pointerleave', () => {
+    isPointerInsideStrip = false;
+    setActiveSpotlight(spotlightIdx);
+  });
+
+  const runHeroMetricsEntrance = () => {
+    if (hasAnimatedMetrics) return;
+    hasAnimatedMetrics = true;
+
+    if (prefersReducedMotion) {
+      heroMetricCells.forEach((cell) => {
+        cell.classList.add('is-entered');
+        cell.style.setProperty('--metric-fill', '1');
+      });
+      return;
+    }
+
+    const easeOutExpo = (t) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
+
+    heroMetricCells.forEach((cell, idx) => {
+      const numEl = cell.querySelector('.hero-metric-num');
+      const targetVal = numEl ? Number(numEl.dataset.countTarget || numEl.textContent) : 0;
+      const delayMs = idx * 110;
+      const durationMs = 1350;
+
+      if (numEl && targetVal > 0) {
+        numEl.textContent = '0';
+      }
+      cell.style.setProperty('--metric-fill', '0');
+
+      requestAnimationFrame(() => {
+        cell.classList.add('is-entered');
+      });
+
+      const startTime = performance.now() + delayMs;
+
+      const tick = (now) => {
+        if (now < startTime) {
+          requestAnimationFrame(tick);
+          return;
+        }
+        const elapsed = now - startTime;
+        const progress = Math.min(1, elapsed / durationMs);
+        const eased = easeOutExpo(progress);
+
+        cell.style.setProperty('--metric-fill', eased.toFixed(3));
+        if (numEl && targetVal > 0) {
+          const currentVal = Math.round(targetVal * eased);
+          numEl.textContent = String(currentVal);
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else if (idx === heroMetricCells.length - 1) {
+          startAmbientSpotlight();
+        }
+      };
+
+      requestAnimationFrame(tick);
+    });
+  };
+
+  if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    const metricsObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            runHeroMetricsEntrance();
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    metricsObserver.observe(heroMetricsStrip);
+  } else {
+    runHeroMetricsEntrance();
+  }
+}
+
