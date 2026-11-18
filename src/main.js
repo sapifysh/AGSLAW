@@ -44,6 +44,11 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   revealElements.forEach((el) => el.classList.add('is-visible'));
 } else {
+  const revealImmediatelyIfInOrAboveViewport = (el) => {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight * 0.96;
+  };
+
   const observer = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
@@ -54,10 +59,16 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
       });
     },
     {
-      threshold: 0.12,
-      rootMargin: '0px 0px -32px 0px',
+      threshold: 0.05,
+      rootMargin: '0px 0px -16px 0px',
     }
   );
 
-  revealElements.forEach((el) => observer.observe(el));
+  revealElements.forEach((el) => {
+    if (revealImmediatelyIfInOrAboveViewport(el)) {
+      el.classList.add('is-visible');
+    } else {
+      observer.observe(el);
+    }
+  });
 }

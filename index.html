@@ -37,7 +37,15 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <script>
       document.documentElement.classList.add('js-anim');
@@ -147,37 +155,54 @@
     </header>
 
     <main>
-      <!-- 2. HERO -->
+      <!-- 2. HERO (ILUSTRASI MONOKROM IR. SOEKARNO) -->
       <section id="beranda" class="hero section-navy">
+        <div class="hero-bg-art" aria-hidden="true">
+          <picture class="hero-bg-picture">
+            <source srcset="/hero-soekarno.webp" type="image/webp" />
+            <img
+              src="/hero-soekarno.jpg"
+              alt=""
+              class="hero-bg-img"
+              width="1376"
+              height="768"
+              fetchpriority="high"
+              decoding="sync"
+            />
+          </picture>
+        </div>
+
         <div class="container hero-inner">
-          <p class="hero-motto">In God We Trust – In Justice We Fight</p>
-          <div class="accent-rule" aria-hidden="true"></div>
+          <div class="hero-content">
+            <p class="hero-motto">In God We Trust – In Justice We Fight</p>
+            <div class="accent-rule" aria-hidden="true"></div>
 
-          <h1 class="hero-title">AGUSTIAN SIAGIAN LAW FIRM</h1>
-          <p class="hero-tagline">Solusi Hukum Terpercaya di Malang</p>
+            <h1 class="hero-title">AGUSTIAN SIAGIAN LAW FIRM</h1>
+            <p class="hero-tagline">Solusi Hukum Terpercaya di Malang</p>
 
-          <div class="hero-actions">
-            <a
-              href="https://wa.me/6281273498019"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-primary btn-lg"
-            >
-              Konsultasi Gratis
-            </a>
-            <a href="#layanan" class="btn btn-outline-light btn-lg">
-              Bidang Praktik
-            </a>
+            <div class="hero-actions">
+              <a
+                href="https://wa.me/6281273498019"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary btn-lg"
+              >
+                Konsultasi Gratis
+              </a>
+              <a href="#layanan" class="btn btn-outline-light btn-lg">
+                Bidang Praktik
+              </a>
+            </div>
+
+            <ul class="hero-badges" aria-label="Standar dan verifikasi">
+              <li class="badge-pill">TERVERIFIKASI DIGITAL</li>
+              <li class="badge-pill">Standar Kode Etik Advokat Indonesia</li>
+            </ul>
           </div>
-
-          <ul class="hero-badges" aria-label="Standar dan verifikasi">
-            <li class="badge-pill">TERVERIFIKASI DIGITAL</li>
-            <li class="badge-pill">Standar Kode Etik Advokat Indonesia</li>
-          </ul>
         </div>
       </section>
 
-      <!-- 3. TENTANG -->
+      <!-- 3. TENTANG + ALUR 3 LANGKAH -->
       <section id="tentang" class="section section-white">
         <div class="container">
           <div class="about-grid reveal">
@@ -193,6 +218,38 @@
               <p class="about-text">
                 AGUSTIAN SIAGIAN LAW FIRM adalah kantor hukum terdaftar di PERADI.
               </p>
+            </div>
+          </div>
+
+          <div class="process-strip reveal" aria-label="Alur pendampingan hukum">
+            <div class="process-step">
+              <span class="process-num" aria-hidden="true">1</span>
+              <div>
+                <h3 class="process-title">Konsultasi Awal Gratis</h3>
+                <p class="process-desc">
+                  Sampaikan kronologi persoalan melalui WhatsApp; kami merespons pada hari kerja yang sama.
+                </p>
+              </div>
+            </div>
+
+            <div class="process-step">
+              <span class="process-num" aria-hidden="true">2</span>
+              <div>
+                <h3 class="process-title">Pemetaan Risiko Hukum</h3>
+                <p class="process-desc">
+                  Mengurai posisi hukum secara objektif dan transparan sejak menit pertama.
+                </p>
+              </div>
+            </div>
+
+            <div class="process-step">
+              <span class="process-num" aria-hidden="true">3</span>
+              <div>
+                <h3 class="process-title">Langkah yang Terukur</h3>
+                <p class="process-desc">
+                  Pendampingan litigasi maupun non-litigasi sesuai strategi penyelesaian perkara.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -225,6 +282,9 @@
                 </svg>
               </div>
               <h3 class="pillar-title">Terverifikasi PERADI</h3>
+              <p class="pillar-desc">
+                Kantor hukum terdaftar di PERADI yang menjalankan praktik berpedoman pada Standar Kode Etik Advokat Indonesia.
+              </p>
             </article>
 
             <article class="card pillar-card reveal">
@@ -247,6 +307,9 @@
                 </svg>
               </div>
               <h3 class="pillar-title">Layanan Litigasi &amp; Non-Litigasi</h3>
+              <p class="pillar-desc">
+                Pendampingan hukum strategis baik untuk penyelesaian sengketa di pengadilan maupun mitigasi risiko di luar pengadilan.
+              </p>
             </article>
 
             <article class="card pillar-card reveal">
@@ -267,12 +330,15 @@
                 </svg>
               </div>
               <h3 class="pillar-title">Konsultasi Hukum</h3>
+              <p class="pillar-desc">
+                Konsultasi awal gratis dengan komunikasi yang jelas, terarah, dan dibalas pada hari kerja yang sama.
+              </p>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- 5. LAYANAN -->
+      <!-- 5. LAYANAN (6 KARTU SIMETRIS DENGAN ILUSTRASI GARIS EDITORIAL) -->
       <section id="layanan" class="section section-white">
         <div class="container">
           <div class="section-header reveal">
@@ -284,98 +350,179 @@
           </div>
 
           <div class="services-grid">
+            <!-- 01 -->
             <article class="card service-card reveal">
-              <div class="service-card-body">
-                <span class="service-num" aria-hidden="true">01</span>
-                <h3 class="service-title">Hukum Perdata</h3>
-                <p class="service-desc">
-                  Penyelesaian sengketa perikatan, sengketa kepemilikan aset, waris, dan perbuatan melawan hukum.
-                </p>
+              <div class="service-visual" aria-hidden="true">
+                <span class="service-num">01</span>
+                <svg class="service-illustration" viewBox="0 0 72 48" fill="none">
+                  <line x1="36" y1="6" x2="36" y2="42" stroke="#16233F" stroke-width="1.25" />
+                  <line x1="22" y1="42" x2="50" y2="42" stroke="#16233F" stroke-width="1.25" />
+                  <line x1="14" y1="14" x2="58" y2="14" stroke="#C9A227" stroke-width="1.25" />
+                  <path d="M14 14 L8 28 H20 L14 14 Z" stroke="#16233F" stroke-width="1.2" />
+                  <path d="M58 14 L52 28 H64 L58 14 Z" stroke="#16233F" stroke-width="1.2" />
+                  <circle cx="36" cy="14" r="2.5" fill="#C9A227" />
+                </svg>
               </div>
-              <a
-                href="https://wa.me/6281273498019"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="service-link"
-                aria-label="Konsultasi Hukum Perdata via WhatsApp"
-              >
-                Konsultasi <span aria-hidden="true">→</span>
-              </a>
+              <div class="service-content">
+                <div>
+                  <h3 class="service-title">Hukum Perdata</h3>
+                  <p class="service-desc">
+                    Penyelesaian sengketa perikatan, sengketa kepemilikan aset, waris, dan perbuatan melawan hukum.
+                  </p>
+                </div>
+                <a
+                  href="https://wa.me/6281273498019"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="service-link"
+                  aria-label="Konsultasi Hukum Perdata via WhatsApp"
+                >
+                  Konsultasi <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </article>
 
+            <!-- 02 -->
             <article class="card service-card reveal">
-              <div class="service-card-body">
-                <span class="service-num" aria-hidden="true">02</span>
-                <h3 class="service-title">Korporasi dan Bisnis</h3>
-                <p class="service-desc">
-                  Konsultasi strategis, mitigasi risiko hukum, dan pendampingan penyelesaian sengketa profesional.
-                </p>
+              <div class="service-visual" aria-hidden="true">
+                <span class="service-num">02</span>
+                <svg class="service-illustration" viewBox="0 0 72 48" fill="none">
+                  <rect x="14" y="10" width="24" height="32" stroke="#16233F" stroke-width="1.25" />
+                  <rect x="38" y="20" width="20" height="22" stroke="#C9A227" stroke-width="1.25" />
+                  <line x1="20" y1="18" x2="32" y2="18" stroke="#16233F" stroke-width="1.2" />
+                  <line x1="20" y1="25" x2="32" y2="25" stroke="#16233F" stroke-width="1.2" />
+                  <line x1="20" y1="32" x2="32" y2="32" stroke="#16233F" stroke-width="1.2" />
+                  <line x1="10" y1="42" x2="62" y2="42" stroke="#16233F" stroke-width="1.25" />
+                </svg>
               </div>
-              <a
-                href="https://wa.me/6281273498019"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="service-link"
-                aria-label="Konsultasi Korporasi dan Bisnis via WhatsApp"
-              >
-                Konsultasi <span aria-hidden="true">→</span>
-              </a>
+              <div class="service-content">
+                <div>
+                  <h3 class="service-title">Korporasi dan Bisnis</h3>
+                  <p class="service-desc">
+                    Konsultasi strategis, mitigasi risiko hukum, dan pendampingan penyelesaian sengketa profesional.
+                  </p>
+                </div>
+                <a
+                  href="https://wa.me/6281273498019"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="service-link"
+                  aria-label="Konsultasi Korporasi dan Bisnis via WhatsApp"
+                >
+                  Konsultasi <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </article>
 
+            <!-- 03 -->
             <article class="card service-card reveal">
-              <div class="service-card-body">
-                <span class="service-num" aria-hidden="true">03</span>
-                <h3 class="service-title">Private Equity &amp; Modal Ventura</h3>
-                <p class="service-desc">
-                  Konsultasi strategis, mitigasi risiko hukum, dan pendampingan penyelesaian sengketa profesional.
-                </p>
+              <div class="service-visual" aria-hidden="true">
+                <span class="service-num">03</span>
+                <svg class="service-illustration" viewBox="0 0 72 48" fill="none">
+                  <circle cx="28" cy="24" r="14" stroke="#16233F" stroke-width="1.25" />
+                  <circle cx="44" cy="24" r="14" stroke="#C9A227" stroke-width="1.25" />
+                  <path d="M36 12.5 V35.5" stroke="#16233F" stroke-width="1" stroke-dasharray="2 2" />
+                </svg>
               </div>
-              <a
-                href="https://wa.me/6281273498019"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="service-link"
-                aria-label="Konsultasi Private Equity dan Modal Ventura via WhatsApp"
-              >
-                Konsultasi <span aria-hidden="true">→</span>
-              </a>
+              <div class="service-content">
+                <div>
+                  <h3 class="service-title">Private Equity &amp; Modal Ventura</h3>
+                  <p class="service-desc">
+                    Konsultasi strategis, mitigasi risiko hukum, dan pendampingan penyelesaian sengketa profesional.
+                  </p>
+                </div>
+                <a
+                  href="https://wa.me/6281273498019"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="service-link"
+                  aria-label="Konsultasi Private Equity dan Modal Ventura via WhatsApp"
+                >
+                  Konsultasi <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </article>
 
+            <!-- 04 -->
             <article class="card service-card reveal">
-              <div class="service-card-body">
-                <span class="service-num" aria-hidden="true">04</span>
-                <h3 class="service-title">Pasar Modal</h3>
-                <p class="service-desc">
-                  Konsultasi strategis, mitigasi risiko hukum, dan pendampingan penyelesaian sengketa profesional.
-                </p>
+              <div class="service-visual" aria-hidden="true">
+                <span class="service-num">04</span>
+                <svg class="service-illustration" viewBox="0 0 72 48" fill="none">
+                  <line x1="12" y1="40" x2="60" y2="40" stroke="#16233F" stroke-width="1.25" />
+                  <rect x="16" y="26" width="7" height="14" stroke="#16233F" stroke-width="1.2" />
+                  <rect x="28" y="20" width="7" height="20" stroke="#16233F" stroke-width="1.2" />
+                  <rect x="40" y="14" width="7" height="26" stroke="#C9A227" stroke-width="1.2" />
+                  <rect x="52" y="18" width="7" height="22" stroke="#16233F" stroke-width="1.2" />
+                  <path d="M16 18 L28 13 L43 8 L58 11" stroke="#C9A227" stroke-width="1.25" />
+                </svg>
               </div>
-              <a
-                href="https://wa.me/6281273498019"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="service-link"
-                aria-label="Konsultasi Pasar Modal via WhatsApp"
-              >
-                Konsultasi <span aria-hidden="true">→</span>
-              </a>
+              <div class="service-content">
+                <div>
+                  <h3 class="service-title">Pasar Modal</h3>
+                  <p class="service-desc">
+                    Konsultasi strategis, mitigasi risiko hukum, dan pendampingan penyelesaian sengketa profesional.
+                  </p>
+                </div>
+                <a
+                  href="https://wa.me/6281273498019"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="service-link"
+                  aria-label="Konsultasi Pasar Modal via WhatsApp"
+                >
+                  Konsultasi <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </article>
 
+            <!-- 05 -->
             <article class="card service-card reveal">
-              <div class="service-card-body">
-                <span class="service-num" aria-hidden="true">05</span>
-                <h3 class="service-title">Perbankan dan Pembiayaan</h3>
-                <p class="service-desc">
-                  Konsultasi strategis, mitigasi risiko hukum, dan pendampingan penyelesaian sengketa profesional.
+              <div class="service-visual" aria-hidden="true">
+                <span class="service-num">05</span>
+                <svg class="service-illustration" viewBox="0 0 72 48" fill="none">
+                  <path d="M12 18 L36 7 L60 18 Z" stroke="#C9A227" stroke-width="1.25" />
+                  <line x1="18" y1="22" x2="18" y2="37" stroke="#16233F" stroke-width="1.25" />
+                  <line x1="30" y1="22" x2="30" y2="37" stroke="#16233F" stroke-width="1.25" />
+                  <line x1="42" y1="22" x2="42" y2="37" stroke="#16233F" stroke-width="1.25" />
+                  <line x1="54" y1="22" x2="54" y2="37" stroke="#16233F" stroke-width="1.25" />
+                  <line x1="12" y1="41" x2="60" y2="41" stroke="#16233F" stroke-width="1.25" />
+                </svg>
+              </div>
+              <div class="service-content">
+                <div>
+                  <h3 class="service-title">Perbankan dan Pembiayaan</h3>
+                  <p class="service-desc">
+                    Konsultasi strategis, mitigasi risiko hukum, dan pendampingan penyelesaian sengketa profesional.
+                  </p>
+                </div>
+                <a
+                  href="https://wa.me/6281273498019"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="service-link"
+                  aria-label="Konsultasi Perbankan dan Pembiayaan via WhatsApp"
+                >
+                  Konsultasi <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- 06: Kartu CTA Penutup Grid 3x2 -->
+            <article class="card service-card--cta reveal">
+              <div>
+                <p class="service-cta-label">Konsultasi Langsung</p>
+                <h3 class="service-cta-title">Persoalan Anda Membutuhkan Arah yang Jelas?</h3>
+                <p class="service-cta-desc">
+                  Diskusikan kebutuhan hukum Anda secara langsung melalui konsultasi awal gratis.
                 </p>
               </div>
               <a
                 href="https://wa.me/6281273498019"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="service-link"
-                aria-label="Konsultasi Perbankan dan Pembiayaan via WhatsApp"
+                class="btn btn-primary"
               >
-                Konsultasi <span aria-hidden="true">→</span>
+                Mulai Konsultasi <span aria-hidden="true">→</span>
               </a>
             </article>
           </div>
@@ -392,14 +539,32 @@
 
           <div class="team-wrapper">
             <article class="card team-card reveal">
-              <div class="team-avatar" aria-hidden="true">
-                <span class="team-initials">AS</span>
+              <div class="team-photo-wrap">
+                <picture class="team-photo-picture">
+                  <source srcset="/agustian-siagian.webp" type="image/webp" />
+                  <img
+                    src="/agustian-siagian.jpg"
+                    alt="Agustian Anggi Siagian, S.H., Advokat"
+                    class="team-photo"
+                    width="498"
+                    height="607"
+                    decoding="async"
+                  />
+                </picture>
               </div>
               <div class="team-info">
                 <h3 class="team-name">Agustian Anggi Siagian, S.H.</h3>
                 <p class="team-role">Advokat</p>
                 <div class="team-divider" aria-hidden="true"></div>
                 <p class="team-meta">NIA 14.01783 — DPC Kab. Malang</p>
+                <a
+                  href="https://wa.me/6281273498019"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="team-action"
+                >
+                  Konsultasi via WhatsApp <span aria-hidden="true">→</span>
+                </a>
               </div>
             </article>
           </div>
