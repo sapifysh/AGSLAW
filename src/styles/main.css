@@ -996,156 +996,97 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   color: var(--color-text);
 }
 
-.process-strip {
-  margin-top: 52px;
-  padding-top: 44px;
+/* 4 Pilar Komitmen Visual (Compact Icon Cards) */
+.trust-pillars {
+  margin-top: 40px;
+  padding-top: 36px;
   border-top: 1px solid var(--color-border);
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
-}
-
-.process-step {
-  display: flex;
   gap: 16px;
-  align-items: flex-start;
 }
 
-.process-num {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--color-gold);
+.trust-pillar {
+  position: relative;
+  overflow: hidden;
+  padding: 24px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  background: linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 8px 22px -16px rgba(14, 24, 45, 0.12);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  color: var(--color-navy);
+  flex-direction: column;
+  align-items: flex-start;
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
-.process-title {
+.trust-pillar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-red) 0%, var(--color-gold) 100%);
+  transform: scaleX(0.18);
+  transform-origin: left center;
+  opacity: 0.6;
+  transition:
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 320ms ease;
+}
+
+.trust-pillar:hover {
+  transform: translateY(-3px);
+  border-color: rgba(181, 137, 46, 0.55);
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 16px 32px -16px rgba(14, 24, 45, 0.18);
+}
+
+.trust-pillar:hover::before {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.trust-pillar-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.trust-pillar:hover .trust-pillar-icon {
+  transform: translateY(-2px);
+  border-color: rgba(181, 137, 46, 0.38);
+}
+
+.trust-pillar-title {
   font-family: var(--font-sans);
-  font-size: 1.125rem;
-  font-weight: 500;
+  font-size: 1.0625rem;
+  font-weight: 600;
   line-height: 1.25;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   color: var(--color-navy);
   margin-bottom: 6px;
 }
 
-.process-desc {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--color-text);
-}
-
-/* Komitmen & Etika Klien (2-Column Comparison) */
-.trust-comparison {
-  margin-top: 44px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-
-.trust-card {
-  padding: 28px;
-  border-radius: 14px;
-  border: 1px solid var(--color-border);
-  background-color: var(--color-surface);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 8px 24px -16px rgba(14, 24, 45, 0.12);
-}
-
-.trust-card--guarantee {
-  background: linear-gradient(180deg, rgba(22, 163, 74, 0.04) 0%, #f9fbfa 100%);
-  border-color: rgba(22, 163, 74, 0.18);
-}
-
-.trust-card--boundary {
-  background: linear-gradient(180deg, rgba(185, 28, 28, 0.035) 0%, #fbf9f9 100%);
-  border-color: rgba(185, 28, 28, 0.16);
-}
-
-.trust-card-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-
-.trust-badge {
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid rgba(12, 18, 32, 0.08);
-  box-shadow:
-    inset 0 1px 0 #ffffff,
-    0 4px 10px -4px rgba(12, 18, 32, 0.1);
-}
-
-.trust-badge--ok {
-  background: linear-gradient(155deg, #ffffff 0%, #eefaf2 100%);
-  border-color: rgba(21, 128, 61, 0.22);
-  color: #15803d;
-}
-
-.trust-badge--no {
-  background: linear-gradient(155deg, #ffffff 0%, #fef1f1 100%);
-  border-color: rgba(185, 28, 28, 0.22);
-  color: var(--color-red);
-}
-
-.trust-card-title {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--color-navy);
-}
-
-.trust-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.trust-list li {
-  position: relative;
-  padding-left: 18px;
+.trust-pillar-desc {
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--color-text);
 }
 
-.trust-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 9px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-.trust-card--guarantee .trust-list li::before {
-  background-color: #16a34a;
-}
-
-.trust-card--boundary .trust-list li::before {
-  background-color: var(--color-red);
-}
 
 /* ==========================================================================
    KARTU UMUM & 03. CARA KERJA (INTERACTIVE STEPPER)
@@ -1510,7 +1451,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 }
 
 .service-card {
-  padding: 32px 28px;
+  padding: 28px 26px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -1518,22 +1459,43 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .service-card:hover,
 .service-card.is-in-focus {
-  border-color: rgba(12, 18, 32, 0.28);
+  border-color: rgba(181, 137, 46, 0.55);
 }
 
 .service-card-head {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 22px;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.service-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  transition:
+    transform 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover .service-icon,
+.service-card.is-in-focus .service-icon {
+  transform: translateY(-2px);
+  border-color: rgba(181, 137, 46, 0.42);
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    inset 0 0 0 1px rgba(181, 137, 46, 0.28),
+    0 10px 22px -8px rgba(12, 18, 32, 0.18);
 }
 
 .service-num {
   font-family: var(--font-sans);
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
   color: #c5cbd8;
   transition: color 360ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -1571,18 +1533,18 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 22px;
+  gap: 18px;
   flex: 1;
 }
 
 .service-title-en {
   font-family: var(--font-sans);
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.03em;
   color: var(--color-navy);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .service-title-id {
@@ -1592,29 +1554,41 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   line-height: 1.35;
   letter-spacing: -0.015em;
   color: #8a6c0f;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .service-desc {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.5;
   color: var(--color-text);
 }
 
 .service-tags {
-  margin-top: 16px;
+  margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  opacity: 0.76;
+  transition: opacity 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover .service-tags,
+.service-card.is-in-focus .service-tags {
+  opacity: 1;
+}
+
+.service-card:hover .service-tags .micro-pill,
+.service-card.is-in-focus .service-tags .micro-pill {
+  border-color: rgba(181, 137, 46, 0.36);
 }
 
 .service-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 44px;
+  min-height: 40px;
   align-self: flex-start;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
@@ -1634,8 +1608,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 }
 
 .service-link:hover {
-  color: var(--color-navy);
-  border-bottom-color: var(--color-navy);
+  color: var(--color-red);
+  border-bottom-color: var(--color-red);
 }
 
 .service-link:hover span {
@@ -1654,27 +1628,27 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
     0 18px 40px -20px rgba(185, 28, 28, 0.14),
     0 4px 12px rgba(12, 18, 32, 0.04);
   color: var(--color-navy);
-  padding: 36px 28px;
+  padding: 32px 26px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 28px;
+  gap: 24px;
   height: 100%;
 }
 
 .service-conversion-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.04em;
   color: var(--color-navy);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .service-conversion-desc {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.55;
   color: var(--color-text);
@@ -1686,78 +1660,129 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 }
 
 /* ==========================================================================
-   05. SECTION KONVERSI (SOFT ARCHITECTURAL SURFACE CARD)
+   05. EDITORIAL VISUAL BREAK — MONUMENTAL MOTTO BANNER
    ========================================================================== */
-.conversion-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
-  align-items: center;
-  padding: 36px 28px;
+.motto-banner {
+  position: relative;
+  overflow: hidden;
+  padding-block: 76px;
   background:
-    radial-gradient(75% 85% at 95% 10%, rgba(181, 137, 46, 0.1) 0%, rgba(181, 137, 46, 0) 70%),
-    linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
-  border: 1px solid var(--color-border-strong);
-  border-radius: 20px;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 1),
-    0 20px 44px -22px rgba(12, 18, 32, 0.1),
-    0 2px 8px rgba(12, 18, 32, 0.03);
+    radial-gradient(60% 85% at 15% 20%, rgba(185, 28, 28, 0.18) 0%, rgba(185, 28, 28, 0) 70%),
+    radial-gradient(55% 85% at 85% 80%, rgba(181, 137, 46, 0.18) 0%, rgba(181, 137, 46, 0) 70%),
+    linear-gradient(180deg, #0b1120 0%, #070b14 100%);
+  border-top: 1px solid rgba(214, 170, 79, 0.25);
+  border-bottom: 1px solid rgba(214, 170, 79, 0.25);
+  color: #f8fafc;
 }
 
-.conversion-body-col {
-  padding-top: 24px;
-  border-top: 1px solid var(--color-border);
+.motto-banner-watermark {
+  position: absolute;
+  inset: 0;
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.conversion-text {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.55;
-  letter-spacing: -0.005em;
-  color: var(--color-text);
-}
-
-.conversion-action {
-  margin-top: 10px;
-}
-
-.conversion-action .btn {
-  width: 100%;
-}
-
-/* ==========================================================================
-   06. PROFIL TIM (KARTU HORIZONTAL DENGAN FOTO RESMI ADVOKAT)
-   ========================================================================== */
-.team-wrapper {
-  display: flex;
+  align-items: center;
   justify-content: center;
+  pointer-events: none;
+  color: rgba(214, 170, 79, 0.08);
 }
 
-.team-card {
-  width: 100%;
-  max-width: 760px;
-  padding: 36px 28px;
+.motto-banner-watermark svg {
+  width: min(360px, 78vw);
+  height: min(360px, 78vw);
+}
+
+.motto-banner-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 24px;
+  gap: 18px;
+}
+
+.motto-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.motto-seal-line {
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(214, 170, 79, 0), rgba(214, 170, 79, 0.75), rgba(214, 170, 79, 0));
+}
+
+.motto-seal-diamond {
+  width: 8px;
+  height: 8px;
+  background-color: #d6aa4f;
+  transform: rotate(45deg);
+  box-shadow: 0 0 12px rgba(214, 170, 79, 0.6);
+}
+
+.motto-statement {
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 4.2vw, 3rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  color: #f8fafc;
+  max-width: 880px;
+}
+
+.motto-statement-accent {
+  background: linear-gradient(95deg, #f87171 0%, #f59e0b 48%, #ecc976 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.motto-sub {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.68);
+}
+
+/* ==========================================================================
+   06. PROFIL TIM — EDITORIAL ADVOCATE FEATURE
+   ========================================================================== */
+.team-feature {
+  position: relative;
+  overflow: hidden;
+  max-width: 960px;
+  margin-inline: auto;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+  background:
+    radial-gradient(70% 80% at 95% 5%, rgba(181, 137, 46, 0.08) 0%, rgba(181, 137, 46, 0) 70%),
+    linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+}
+
+.team-feature-media {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
 }
 
 .team-photo-wrap {
-  flex-shrink: 0;
-  width: 140px;
-  aspect-ratio: 5 / 6;
-  border-radius: 12px;
-  border: 1px solid var(--color-border-strong);
-  padding: 4px;
+  position: relative;
+  width: 210px;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  border: 1px solid rgba(181, 137, 46, 0.36);
+  padding: 6px;
   background-color: var(--color-white);
-  box-shadow: 0 8px 20px -10px rgba(12, 18, 32, 0.12);
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 18px 36px -16px rgba(12, 18, 32, 0.22);
   overflow: hidden;
 }
 
@@ -1770,72 +1795,99 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 .team-photo {
   width: 100%;
   height: 100%;
-  border-radius: 8px;
+  border-radius: 11px;
   object-fit: cover;
   object-position: center top;
   display: block;
 }
 
-.team-info {
+.team-exp-badge {
+  margin-top: -18px;
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  background-color: #0c1220;
+  border: 1px solid rgba(214, 170, 79, 0.45);
+  box-shadow: 0 10px 22px -8px rgba(12, 18, 32, 0.42);
+  color: #f8fafc;
+}
+
+.team-exp-num {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #ecc976;
+}
+
+.team-exp-text {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: rgba(241, 245, 251, 0.88);
+}
+
+.team-feature-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+
+.team-quote {
+  font-family: var(--font-sans);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+  color: var(--color-navy);
+}
+
+.team-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .team-name {
   font-family: var(--font-sans);
-  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-size: clamp(1.375rem, 2.3vw, 1.75rem);
   font-weight: 600;
   line-height: 1.15;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.035em;
   color: var(--color-navy);
 }
 
 .team-role {
-  margin-top: 6px;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-  color: var(--color-text);
-}
-
-.team-divider {
-  width: 36px;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--color-red) 0%, var(--color-gold) 100%);
-  margin-block: 14px;
-}
-
-.team-bio {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.55;
-  color: var(--color-text);
-}
-
-.team-action {
-  margin-top: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 44px;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  color: var(--color-navy);
-  text-decoration: none;
-  border-bottom: 1px solid var(--color-gold);
-  transition: border-color var(--transition-base), color var(--transition-base);
+  font-weight: 500;
+  line-height: 1.4;
+  color: #8a6c0f;
 }
 
-.team-action:hover {
-  color: var(--color-red);
-  border-bottom-color: var(--color-red);
+.team-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.team-cta-row {
+  margin-top: 4px;
+  width: 100%;
+}
+
+.team-cta-row .btn {
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -2365,9 +2417,14 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
   .hero-actions .btn,
   .service-conversion-action .btn,
-  .conversion-action .btn,
+  .team-cta-row .btn,
   .cta-action .btn {
     width: auto;
+  }
+
+  .trust-pillars {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
   }
 
   .services-grid {
@@ -2411,14 +2468,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
     padding-block: 56px;
   }
 
-  .about-grid,
-  .conversion-grid {
+  .about-grid {
     grid-template-columns: 6fr 6fr;
     gap: 56px;
-  }
-
-  .conversion-grid {
-    padding: 48px 52px;
   }
 
   .about-body-col {
@@ -2428,36 +2480,27 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
     border-left: 1px solid var(--color-gold);
   }
 
-  .conversion-body-col {
-    padding-top: 0;
-    border-top: none;
-    padding-left: 36px;
-    border-left: 1px solid var(--color-border-strong);
+  .motto-banner {
+    padding-block: 96px;
   }
 
-  .process-strip {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  .trust-comparison {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .team-card {
-    flex-direction: row;
-    text-align: left;
-    padding: 40px 44px;
-    gap: 36px;
+  .team-feature {
+    grid-template-columns: 240px 1fr;
+    padding: 44px 48px;
+    gap: 44px;
   }
 
   .team-photo-wrap {
-    width: 156px;
+    width: 230px;
   }
 
-  .team-info {
+  .team-feature-content {
     align-items: flex-start;
+    text-align: left;
+  }
+
+  .team-credentials {
+    justify-content: flex-start;
   }
 
   .contact-link,
@@ -2510,11 +2553,11 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   }
 
   .section {
-    padding-block: 120px;
+    padding-block: 108px;
   }
 
   .section-header {
-    margin-bottom: 56px;
+    margin-bottom: 48px;
   }
 
   .services-header {
@@ -2551,6 +2594,11 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
     font-size: 2.875rem;
   }
 
+  .trust-pillars {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
   .services-layout {
     grid-template-columns: 4fr 8fr;
     gap: 48px;
@@ -2574,6 +2622,16 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   .service-conversion-card {
     grid-column: span 1;
     padding: 32px 28px;
+  }
+
+  .team-feature {
+    grid-template-columns: 260px 1fr;
+    padding: 52px 56px;
+    gap: 52px;
+  }
+
+  .team-photo-wrap {
+    width: 250px;
   }
 
   .contact-grid {
@@ -2799,40 +2857,20 @@ html[data-theme='dark'] .hero-metric:hover .hero-metric-plus {
   color: #f87171;
 }
 
-/* Tentang & Komitmen Klien */
-html[data-theme='dark'] .trust-card {
+/* Tentang & 4 Pilar Komitmen Visual */
+html[data-theme='dark'] .trust-pillar {
+  background: linear-gradient(180deg, #131c31 0%, #0f1728 100%);
+  border-color: rgba(255, 255, 255, 0.09);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
     0 14px 32px -18px rgba(0, 0, 0, 0.65);
 }
 
-html[data-theme='dark'] .trust-card--guarantee {
-  background: linear-gradient(180deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 24, 40, 0.96) 100%);
-  border-color: rgba(74, 222, 128, 0.24);
-}
-
-html[data-theme='dark'] .trust-card--boundary {
-  background: linear-gradient(180deg, rgba(239, 68, 68, 0.1) 0%, rgba(16, 24, 40, 0.96) 100%);
-  border-color: rgba(248, 113, 113, 0.24);
-}
-
-html[data-theme='dark'] .trust-badge {
-  border-color: rgba(255, 255, 255, 0.12);
+html[data-theme='dark'] .trust-pillar:hover {
+  border-color: rgba(214, 170, 79, 0.55);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 6px 14px -6px rgba(0, 0, 0, 0.6);
-}
-
-html[data-theme='dark'] .trust-badge--ok {
-  background: linear-gradient(155deg, #162a22 0%, #0e1b16 100%);
-  border-color: rgba(74, 222, 128, 0.34);
-  color: #4ade80;
-}
-
-html[data-theme='dark'] .trust-badge--no {
-  background: linear-gradient(155deg, #2b171d 0%, #1a0f13 100%);
-  border-color: rgba(248, 113, 113, 0.34);
-  color: #f87171;
+    0 18px 36px -16px rgba(0, 0, 0, 0.78);
 }
 
 /* General Cards, Bespoke Jewel Medallions & Pills */
@@ -2864,7 +2902,10 @@ html[data-theme='dark'] .contact-icon {
   color: #f1f5fb;
 }
 
-html[data-theme='dark'] .contact-item:hover .contact-icon {
+html[data-theme='dark'] .contact-item:hover .contact-icon,
+html[data-theme='dark'] .service-card:hover .service-icon,
+html[data-theme='dark'] .service-card.is-in-focus .service-icon,
+html[data-theme='dark'] .trust-pillar:hover .trust-pillar-icon {
   border-color: rgba(214, 170, 79, 0.55);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.14),
@@ -2873,20 +2914,17 @@ html[data-theme='dark'] .contact-item:hover .contact-icon {
 }
 
 html[data-theme='dark'] .card-icon svg [stroke='#0c1220'],
-html[data-theme='dark'] .contact-icon svg [stroke='#0c1220'],
-html[data-theme='dark'] .trust-badge svg [stroke='#0c1220'] {
+html[data-theme='dark'] .contact-icon svg [stroke='#0c1220'] {
   stroke: #edf2fb;
 }
 
 html[data-theme='dark'] .card-icon svg [fill='#0c1220'],
-html[data-theme='dark'] .contact-icon svg [fill='#0c1220'],
-html[data-theme='dark'] .trust-badge svg [fill='#0c1220'] {
+html[data-theme='dark'] .contact-icon svg [fill='#0c1220'] {
   fill: #edf2fb;
 }
 
 html[data-theme='dark'] .card-icon svg [fill='#ffffff'],
-html[data-theme='dark'] .contact-icon svg [fill='#ffffff'],
-html[data-theme='dark'] .trust-badge svg [fill='#ffffff'] {
+html[data-theme='dark'] .contact-icon svg [fill='#ffffff'] {
   fill: #151e33;
 }
 
@@ -2929,7 +2967,8 @@ html[data-theme='dark'] .workflow-active-pill {
 }
 
 html[data-theme='dark'] .workflow-output-label,
-html[data-theme='dark'] .service-title-id {
+html[data-theme='dark'] .service-title-id,
+html[data-theme='dark'] .team-role {
   color: #e5be6a;
 }
 
@@ -2973,6 +3012,16 @@ html[data-theme='dark'] .service-card.is-in-focus {
   border-color: rgba(214, 170, 79, 0.45);
 }
 
+html[data-theme='dark'] .service-card:hover .service-tags .micro-pill,
+html[data-theme='dark'] .service-card.is-in-focus .service-tags .micro-pill {
+  border-color: rgba(214, 170, 79, 0.42);
+}
+
+html[data-theme='dark'] .service-link:hover {
+  color: #f87171;
+  border-bottom-color: #f87171;
+}
+
 html[data-theme='dark'] .service-conversion-card {
   background:
     radial-gradient(80% 90% at 100% 0%, rgba(214, 170, 79, 0.14) 0%, rgba(214, 170, 79, 0) 65%),
@@ -2984,26 +3033,20 @@ html[data-theme='dark'] .service-conversion-card {
     0 20px 44px -20px rgba(0, 0, 0, 0.68);
 }
 
-/* Section Konversi & Tim */
-html[data-theme='dark'] .conversion-grid {
+/* Editorial Advocate Feature (#tim) */
+html[data-theme='dark'] .team-feature {
   background:
-    radial-gradient(75% 85% at 95% 10%, rgba(214, 170, 79, 0.12) 0%, rgba(214, 170, 79, 0) 70%),
+    radial-gradient(70% 80% at 95% 5%, rgba(214, 170, 79, 0.12) 0%, rgba(214, 170, 79, 0) 70%),
     linear-gradient(180deg, #131c30 0%, #0e1525 100%);
-  border-color: rgba(255, 255, 255, 0.14);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 22px 46px -22px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 html[data-theme='dark'] .team-photo-wrap {
   background-color: #1a243b;
-  border-color: rgba(214, 170, 79, 0.3);
-  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.6);
-}
-
-html[data-theme='dark'] .team-action:hover {
-  color: #f87171;
-  border-bottom-color: #f87171;
+  border-color: rgba(214, 170, 79, 0.34);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 16px 32px -14px rgba(0, 0, 0, 0.68);
 }
 
 /* Kontak & FAQ */

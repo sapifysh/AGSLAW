@@ -185,11 +185,10 @@ if (workflowSteps.length > 0 && workflowPanels.length > 0) {
 
 // Configure staggered cascade delays for grid & list items
 const staggerGroups = [
-  { selector: '.process-strip', itemSelector: '.process-step', stepMs: 95, cols: 3 },
-  { selector: '.trust-comparison', itemSelector: '.trust-card', stepMs: 110, cols: 2 },
+  { selector: '.trust-pillars', itemSelector: '.trust-pillar', stepMs: 85, cols: 4 },
   { selector: '.workflow-steps', itemSelector: '.workflow-step', stepMs: 90, cols: 3 },
   { selector: '.services-grid', itemSelector: '.service-card, .service-conversion-card', stepMs: 85, cols: 2 },
-  { selector: '.faq-list', itemSelector: '.faq-item', stepMs: 65, cols: 5 },
+  { selector: '.faq-list', itemSelector: '.faq-item', stepMs: 65, cols: 4 },
   { selector: '.contact-grid', itemSelector: '.contact-item', stepMs: 75, cols: 3 },
 ];
 
@@ -346,7 +345,8 @@ function updateScrollChoreography() {
     });
 
     const isDarkBackdrop = currentSurface
-      ? currentSurface.classList.contains('site-footer')
+      ? currentSurface.classList.contains('site-footer') ||
+        currentSurface.classList.contains('motto-banner')
       : false;
 
     siteHeader.classList.toggle('is-over-dark', isDarkBackdrop);
