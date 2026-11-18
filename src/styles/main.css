@@ -145,7 +145,7 @@ section[id] {
   left: 0;
   right: 0;
   z-index: 50;
-  padding: 12px 14px 0;
+  padding: 12px 16px 0;
   pointer-events: none;
 }
 
@@ -156,9 +156,11 @@ section[id] {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  max-width: var(--container-max);
-  min-height: 56px;
-  padding: 6px 8px 6px 14px;
+  width: 100%;
+  max-width: 420px;
+  min-height: 50px;
+  margin-inline: auto;
+  padding: 5px 6px 5px 12px;
   border-radius: 9999px;
   overflow: hidden;
   isolation: isolate;
@@ -234,35 +236,18 @@ section[id] {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
   text-decoration: none;
-  min-height: 40px;
-  min-width: 0;
+  min-height: 36px;
+  flex-shrink: 0;
 }
 
 .brand-logo {
   flex-shrink: 0;
-  width: 32px;
-  height: 35px;
+  width: 28px;
+  height: 31px;
   object-fit: contain;
   filter: drop-shadow(0 1px 2px rgba(12, 18, 32, 0.12));
-}
-
-.brand-name {
-  font-family: var(--font-sans);
-  font-size: 0.78125rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--color-navy);
-  line-height: 1.15;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: color var(--transition-base);
-}
-
-.site-header.is-over-dark .brand-name {
-  color: var(--color-white);
 }
 
 .desktop-nav {
@@ -272,20 +257,20 @@ section[id] {
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .nav-link {
   display: inline-flex;
   align-items: center;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 0.84375rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.015em;
   color: var(--color-text);
   text-decoration: none;
-  padding: 8px 13px;
+  padding: 7px 12px;
   border-radius: 9999px;
   white-space: nowrap;
   transition:
@@ -331,16 +316,16 @@ section[id] {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-shrink: 0;
 }
 
 .btn.btn-nav {
   display: none;
-  min-height: 40px;
-  padding: 9px 18px;
+  min-height: 36px;
+  padding: 7px 16px;
   border-radius: 9999px;
-  font-size: 0.875rem;
+  font-size: 0.84375rem;
   background-color: var(--color-navy);
   border-color: var(--color-navy);
   color: var(--color-white);
@@ -358,8 +343,8 @@ section[id] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   padding: 0;
   background-color: rgba(12, 18, 32, 0.04);
   color: var(--color-navy);
@@ -402,9 +387,9 @@ section[id] {
 
 .mobile-menu {
   pointer-events: auto;
-  max-width: var(--container-max);
-  margin: 10px auto 0;
-  border-radius: 24px;
+  max-width: 420px;
+  margin: 8px auto 0;
+  border-radius: 22px;
   background: linear-gradient(
     145deg,
     rgba(255, 255, 255, 0.94) 0%,
@@ -548,18 +533,6 @@ section[id] {
   transform: translateY(-1px);
 }
 
-.accent-rule {
-  width: 44px;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--color-red) 0%, var(--color-gold) 100%);
-  margin-bottom: 18px;
-}
-
-.accent-rule--center {
-  margin-inline: auto;
-}
-
 /* ==========================================================================
    SECTIONS & TYPOGRAPHY (SOFT CANVAS + SHARP INK)
    ========================================================================== */
@@ -596,30 +569,6 @@ section[id] {
 .section-header--center {
   margin-inline: auto;
   text-align: center;
-}
-
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 12px;
-  border-radius: 9999px;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
-  box-shadow: 0 1px 2px rgba(12, 18, 32, 0.03);
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  line-height: 1.2;
-  color: var(--color-navy);
-  margin-bottom: 14px;
-}
-
-.section-label--light {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-color: var(--color-border);
-  color: var(--color-navy);
 }
 
 .section-title {
@@ -677,36 +626,6 @@ section[id] {
 
 .hero-content {
   max-width: 780px;
-}
-
-.hero-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  margin-bottom: 22px;
-  border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.92);
-  border: 1px solid var(--color-border-strong);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 1),
-    0 2px 8px -2px rgba(12, 18, 32, 0.06);
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.11em;
-  line-height: 1.2;
-  color: var(--color-navy);
-}
-
-.hero-pill-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--color-red);
-  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.16);
-  flex-shrink: 0;
 }
 
 .hero-title {
@@ -2143,17 +2062,20 @@ section[id] {
 
 @media (min-width: 960px) {
   .site-header {
-    padding: 16px 28px 0;
+    padding: 16px 24px 0;
   }
 
   .site-header .nav-container {
-    min-height: 62px;
-    padding: 7px 8px 7px 16px;
+    width: fit-content;
+    max-width: calc(100vw - 48px);
+    min-height: 50px;
+    padding: 5px 6px 5px 12px;
+    gap: 16px;
   }
 
   .brand-logo {
-    width: 34px;
-    height: 37px;
+    width: 30px;
+    height: 33px;
   }
 
   .menu-toggle,
@@ -2167,10 +2089,6 @@ section[id] {
 
   .btn.btn-nav {
     display: inline-flex;
-  }
-
-  .brand-name {
-    font-size: 0.875rem;
   }
 
   .section {
