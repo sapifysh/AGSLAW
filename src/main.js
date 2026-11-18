@@ -44,15 +44,24 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   revealElements.forEach((el) => el.classList.add('is-visible'));
 } else {
-  const revealImmediatelyIfInOrAboveViewport = (el) => {
+  const isInOrAboveViewport = (el) => {
     const rect = el.getBoundingClientRect();
-    return rect.top < window.innerHeight * 0.96;
+    return rect.top < window.innerHeight * 0.98;
+  };
+
+  const revealInOrAboveViewport = () => {
+    revealElements.forEach((el) => {
+      if (!el.classList.contains('is-visible') && isInOrAboveViewport(el)) {
+        el.classList.add('is-visible');
+        observer.unobserve(el);
+      }
+    });
   };
 
   const observer = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight) {
           entry.target.classList.add('is-visible');
           obs.unobserve(entry.target);
         }
@@ -65,10 +74,13 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   );
 
   revealElements.forEach((el) => {
-    if (revealImmediatelyIfInOrAboveViewport(el)) {
+    if (isInOrAboveViewport(el)) {
       el.classList.add('is-visible');
     } else {
       observer.observe(el);
     }
   });
+
+  window.addEventListener('scroll', revealInOrAboveViewport, { passive: true });
+  window.addEventListener('hashchange', () => setTimeout(revealInOrAboveViewport, 50));
 }
