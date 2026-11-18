@@ -195,7 +195,6 @@ const staggerGroups = [
   { selector: '.workflow-steps', itemSelector: '.workflow-step', stepMs: 90, cols: 3 },
   { selector: '.services-grid', itemSelector: '.service-card, .service-conversion-card', stepMs: 85, cols: 2 },
   { selector: '.faq-list', itemSelector: '.faq-item', stepMs: 65, cols: 4 },
-  { selector: '.contact-grid', itemSelector: '.contact-item', stepMs: 75, cols: 3 },
 ];
 
 staggerGroups.forEach(({ selector, itemSelector, stepMs, cols }) => {
