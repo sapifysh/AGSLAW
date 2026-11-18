@@ -10,6 +10,7 @@ Landing page resmi satu halaman untuk **Agustian Siagian Law Firm** (Malang).
 - `public/logo.svg` — Logo perisai resmi Agustian Siagian Law Firm
 - `public/hero-soekarno.webp` & `public/hero-soekarno.jpg` — Latar ilustrasi monokrom lukisan tangan Ir. Soekarno untuk hero section
 - `public/agustian-siagian.webp` & `public/agustian-siagian.jpg` — Foto resmi Advokat Agustian Anggi Siagian, S.H.
+- `src/assets/fonts/Geist-Variable.woff2` — Font utama Geist Sans (self-hosted)
 - `public/_headers` — Header keamanan dan cache untuk Cloudflare Pages
 
 ## Pengembangan Lokal

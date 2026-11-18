@@ -1,7 +1,15 @@
 /* ==========================================================================
    Agustian Siagian Law Firm — Design System & Styles
-   Minimalis, Modern, Clean
+   Minimalis, Modern, Clean — Protocol Typography (Geist Sans)
    ========================================================================== */
+
+@font-face {
+  font-family: 'Geist';
+  src: url('../assets/fonts/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Palet warna terbatas */
@@ -17,9 +25,8 @@
   --color-border: #e4e7ee;
   --color-numeral: #d4d8e1;
 
-  /* Tipografi */
-  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Tipografi: Geist Sans sebagai primary font */
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Tata letak & ritme */
   --container-max: 1120px;
@@ -44,11 +51,14 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   font-size: 1rem;
-  line-height: 1.65;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
   color: var(--color-text);
   background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 img {
@@ -112,6 +122,17 @@ section[id] {
   scroll-margin-top: 76px;
 }
 
+/* Controlled heading line breaks */
+.heading-br {
+  display: inline;
+}
+
+@media (max-width: 359px) {
+  .heading-br {
+    display: none;
+  }
+}
+
 /* ==========================================================================
    1. NAVBAR
    ========================================================================== */
@@ -148,12 +169,12 @@ section[id] {
 }
 
 .brand-name {
-  font-family: var(--font-serif);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: var(--color-navy);
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .desktop-nav {
@@ -167,8 +188,11 @@ section[id] {
 }
 
 .nav-link {
-  font-size: 0.9375rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
   font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
   color: var(--color-navy);
   text-decoration: none;
   padding-block: 8px;
@@ -261,8 +285,10 @@ section[id] {
   display: flex;
   align-items: center;
   min-height: 44px;
-  font-size: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
   font-weight: 500;
+  letter-spacing: -0.015em;
   color: var(--color-navy);
   text-decoration: none;
   border-bottom: 1px solid var(--color-surface);
@@ -290,8 +316,9 @@ section[id] {
   border-radius: var(--radius-btn);
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
   text-decoration: none;
   border: 1px solid transparent;
   cursor: pointer;
@@ -306,6 +333,7 @@ section[id] {
   min-height: 48px;
   padding: 13px 26px;
   font-size: 0.9375rem;
+  font-weight: 600;
 }
 
 .btn-primary {
@@ -336,7 +364,7 @@ section[id] {
   width: 48px;
   height: 1px;
   background-color: var(--color-gold);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .accent-rule--center {
@@ -347,7 +375,7 @@ section[id] {
    SECTIONS & TYPOGRAPHY
    ========================================================================== */
 .section {
-  padding-block: 64px;
+  padding-block: 72px;
 }
 
 .section-white {
@@ -366,8 +394,8 @@ section[id] {
 }
 
 .section-header {
-  max-width: 640px;
-  margin-bottom: 40px;
+  max-width: 720px;
+  margin-bottom: 44px;
 }
 
 .section-header--center {
@@ -376,11 +404,11 @@ section[id] {
 }
 
 .section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 4.8vw, 3rem);
   font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.015em;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
   color: var(--color-navy);
 }
 
@@ -390,8 +418,12 @@ section[id] {
 
 .section-sub {
   margin-top: 14px;
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  max-width: 560px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
   color: var(--color-text);
 }
 
@@ -399,7 +431,7 @@ section[id] {
    2. HERO (ILUSTRASI MONOKROM IR. SOEKARNO)
    ========================================================================== */
 .hero {
-  padding-block: 76px 84px;
+  padding-block: 76px 88px;
 }
 
 .hero-bg-art {
@@ -443,39 +475,42 @@ section[id] {
 }
 
 .hero-content {
-  max-width: 680px;
+  max-width: 720px;
 }
 
 .hero-motto {
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
+  line-height: 1.3;
   color: var(--color-gold);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.625rem, 4.4vw, 3.375rem);
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 10.6vw, 3.125rem);
   font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: 0.015em;
+  line-height: 1.08;
+  letter-spacing: -0.055em;
   color: var(--color-white);
-  overflow-wrap: break-word;
   max-width: 100%;
 }
 
 .hero-tagline {
-  margin-top: 18px;
-  font-size: clamp(1.0625rem, 2vw, 1.3125rem);
+  margin-top: 16px;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.8vw, 1.1875rem);
   font-weight: 400;
   line-height: 1.5;
+  letter-spacing: -0.015em;
   color: rgba(255, 255, 255, 0.88);
 }
 
 .hero-actions {
-  margin-top: 32px;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
@@ -486,7 +521,7 @@ section[id] {
 }
 
 .hero-badges {
-  margin-top: 36px;
+  margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -500,7 +535,7 @@ section[id] {
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.86);
 }
 
@@ -519,29 +554,33 @@ section[id] {
   border-top: 1px solid var(--color-gold);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .about-lead {
-  font-size: 1.125rem;
-  line-height: 1.75;
+  font-family: var(--font-sans);
+  font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
   color: var(--color-navy);
-  font-weight: 400;
 }
 
 .about-text {
+  font-family: var(--font-sans);
   font-size: 1rem;
-  line-height: 1.75;
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--color-text);
 }
 
 .process-strip {
-  margin-top: 48px;
-  padding-top: 40px;
+  margin-top: 52px;
+  padding-top: 44px;
   border-top: 1px solid var(--color-border);
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 28px;
 }
 
 .process-step {
@@ -559,23 +598,28 @@ section[id] {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-serif);
-  font-size: 0.9375rem;
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
   color: var(--color-navy);
 }
 
 .process-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 1.125rem;
   font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
   color: var(--color-navy);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .process-desc {
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--color-text);
 }
 
@@ -606,7 +650,7 @@ section[id] {
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .card-icon {
@@ -622,16 +666,19 @@ section[id] {
 }
 
 .pillar-title {
-  font-family: var(--font-serif);
-  font-size: 1.3125rem;
+  font-family: var(--font-sans);
+  font-size: 1.375rem;
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
   color: var(--color-navy);
 }
 
 .pillar-desc {
-  font-size: 0.9375rem;
-  line-height: 1.65;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--color-text);
 }
 
@@ -662,10 +709,12 @@ section[id] {
 }
 
 .service-num {
-  font-family: var(--font-serif);
-  font-size: 2.25rem;
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-size: 2rem;
+  font-weight: 500;
   line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
   color: var(--color-numeral);
 }
 
@@ -680,22 +729,25 @@ section[id] {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
+  gap: 18px;
   flex: 1;
 }
 
 .service-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 1.375rem;
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
   color: var(--color-navy);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .service-desc {
-  font-size: 0.9375rem;
-  line-height: 1.7;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--color-text);
 }
 
@@ -705,8 +757,10 @@ section[id] {
   gap: 6px;
   min-height: 44px;
   align-self: flex-start;
+  font-family: var(--font-sans);
   font-size: 0.9375rem;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   color: var(--color-navy);
   text-decoration: none;
   border-bottom: 1px solid transparent;
@@ -742,6 +796,7 @@ section[id] {
 }
 
 .service-cta-label {
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -751,17 +806,20 @@ section[id] {
 }
 
 .service-cta-title {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 1.625rem;
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.14;
+  letter-spacing: -0.035em;
   color: var(--color-white);
   margin-bottom: 12px;
 }
 
 .service-cta-desc {
-  font-size: 0.9375rem;
-  line-height: 1.7;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.82);
 }
 
@@ -817,17 +875,21 @@ section[id] {
 }
 
 .team-name {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
   color: var(--color-navy);
 }
 
 .team-role {
   margin-top: 6px;
-  font-size: 0.9375rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
   font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
   color: var(--color-text);
 }
 
@@ -839,8 +901,11 @@ section[id] {
 }
 
 .team-meta {
+  font-family: var(--font-sans);
   font-size: 0.875rem;
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
   color: var(--color-text);
 }
 
@@ -850,8 +915,10 @@ section[id] {
   align-items: center;
   gap: 6px;
   min-height: 44px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   color: var(--color-navy);
   text-decoration: none;
   border-bottom: 1px solid var(--color-gold);
@@ -866,13 +933,16 @@ section[id] {
    7. CTA + KONTAK
    ========================================================================== */
 .cta-block {
-  max-width: 680px;
+  max-width: 720px;
 }
 
 .contact-sub {
   margin-top: 14px;
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -887,7 +957,7 @@ section[id] {
 .contact-divider {
   height: 1px;
   background-color: rgba(201, 162, 39, 0.35);
-  margin-block: 48px;
+  margin-block: 52px;
 }
 
 .contact-grid {
@@ -922,6 +992,7 @@ section[id] {
 }
 
 .contact-label {
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -930,8 +1001,10 @@ section[id] {
 }
 
 .contact-value {
-  font-size: 0.9375rem;
-  line-height: 1.65;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -939,7 +1012,11 @@ section[id] {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  font-size: 0.9375rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
   color: var(--color-white);
   text-decoration: none;
   word-break: break-word;
@@ -957,8 +1034,10 @@ section[id] {
   min-height: 44px;
   align-self: flex-start;
   margin-top: 4px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   color: var(--color-gold);
   text-decoration: none;
   border-bottom: 1px solid rgba(201, 162, 39, 0.45);
@@ -975,7 +1054,7 @@ section[id] {
 .site-footer {
   background-color: var(--color-navy-deep);
   color: rgba(255, 255, 255, 0.85);
-  padding-block: 48px 92px;
+  padding-block: 52px 96px;
   border-top: 1px solid rgba(201, 162, 39, 0.2);
 }
 
@@ -999,9 +1078,10 @@ section[id] {
 }
 
 .footer-name {
-  font-family: var(--font-serif);
-  font-size: 1.0625rem;
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: var(--color-white);
 }
 
@@ -1015,7 +1095,8 @@ section[id] {
 
 .footer-address {
   font-size: 0.875rem;
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.72);
 }
 
@@ -1026,6 +1107,7 @@ section[id] {
 
 .footer-copy {
   font-size: 0.8125rem;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -1046,8 +1128,10 @@ section[id] {
   color: var(--color-white);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(14, 24, 45, 0.22);
   transition: background-color var(--transition-base), transform var(--transition-base);
@@ -1094,19 +1178,13 @@ section[id] {
   }
 }
 
-@media print {
-  .js-anim .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-/* ==========================================================================
-   RESPONSIVE BREAKPOINTS
-   ========================================================================== */
 @media (min-width: 640px) {
   .container {
     padding-inline: 28px;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 6.2vw, 4rem);
   }
 
   .hero-actions .btn,
@@ -1139,14 +1217,14 @@ section[id] {
   }
 
   .about-grid {
-    grid-template-columns: 5fr 7fr;
+    grid-template-columns: 6fr 6fr;
     gap: 56px;
   }
 
   .about-body-col {
     padding-top: 0;
     border-top: none;
-    padding-left: 32px;
+    padding-left: 36px;
     border-left: 1px solid var(--color-gold);
   }
 
@@ -1197,15 +1275,35 @@ section[id] {
   }
 
   .brand-name {
-    font-size: 1rem;
+    font-size: 0.9375rem;
   }
 
   .section {
-    padding-block: 112px;
+    padding-block: 120px;
+  }
+
+  .section-header {
+    margin-bottom: 56px;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 4.2vw, 3rem);
+  }
+
+  .section-sub,
+  .contact-sub {
+    font-size: 1.0625rem;
   }
 
   .hero {
-    padding-block: 112px 124px;
+    padding-block: 120px 132px;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.055em;
   }
 
   .hero-bg-img {
@@ -1222,13 +1320,13 @@ section[id] {
       rgba(16, 27, 50, 0.34) 100%
     );
   }
-
-  .section-header {
-    margin-bottom: 52px;
-  }
 }
 
 @media (min-width: 1024px) {
+  .section-title {
+    font-size: 3rem;
+  }
+
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
@@ -1240,5 +1338,12 @@ section[id] {
 
   .contact-item--address {
     grid-column: span 2;
+  }
+}
+
+@media print {
+  .js-anim .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
