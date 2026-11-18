@@ -70,9 +70,8 @@ if (siteHeader && pageSections.length > 0) {
     });
 
     const isDarkBackdrop = currentSurface
-      ? currentSurface.classList.contains('section-navy') ||
-        currentSurface.classList.contains('site-footer')
-      : window.scrollY < 100;
+      ? currentSurface.classList.contains('site-footer')
+      : false;
 
     siteHeader.classList.toggle('is-over-dark', isDarkBackdrop);
 
