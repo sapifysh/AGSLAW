@@ -26,12 +26,18 @@ if (themeToggle) {
   applyTheme(initialTheme);
 
   themeToggle.addEventListener('click', () => {
-    const nextTheme =
-      document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    const rootEl = document.documentElement;
+    rootEl.classList.add('is-theme-switching');
+    const nextTheme = rootEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     applyTheme(nextTheme);
     try {
       localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
     } catch (e) {}
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        rootEl.classList.remove('is-theme-switching');
+      });
+    });
   });
 }
 
@@ -345,7 +351,8 @@ function updateScrollChoreography() {
     });
 
     const isDarkBackdrop = currentSurface
-      ? currentSurface.classList.contains('site-footer') ||
+      ? currentSurface.classList.contains('hero') ||
+        currentSurface.classList.contains('site-footer') ||
         currentSurface.classList.contains('motto-banner')
       : false;
 
