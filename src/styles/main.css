@@ -57,10 +57,10 @@ html.js-anim {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: -0.005em;
+  line-height: 1.6;
+  letter-spacing: -0.008em;
   color: var(--color-text);
   background-color: var(--color-surface-soft);
   -webkit-font-smoothing: antialiased;
@@ -304,8 +304,8 @@ section[id] {
   display: inline-flex;
   align-items: center;
   font-family: var(--font-sans);
-  font-size: 0.84375rem;
-  font-weight: 500;
+  font-size: 0.9375rem;
+  font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.015em;
   color: var(--color-text);
@@ -327,7 +327,7 @@ section[id] {
 
 .nav-link.is-active {
   color: var(--color-navy);
-  font-weight: 600;
+  font-weight: 500;
   background-color: rgba(255, 253, 248, 0.56);
   box-shadow:
     inset 0 1px 0 rgba(255, 253, 248, 0.72),
@@ -365,7 +365,8 @@ section[id] {
   min-height: 36px;
   padding: 7px 16px;
   border-radius: 9999px;
-  font-size: 0.84375rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
   background-color: rgba(23, 27, 34, 0.9);
   border-color: rgba(23, 27, 34, 0.85);
   color: #fcfbf8;
@@ -556,7 +557,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   padding-inline: 12px;
   border-radius: 12px;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: -0.015em;
   color: var(--color-navy);
@@ -597,7 +598,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   border-radius: var(--radius-btn);
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.015em;
   text-decoration: none;
@@ -614,8 +615,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 .btn-lg {
   min-height: 48px;
   padding: 13px 28px;
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .btn-primary {
@@ -702,10 +703,10 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .section-title {
   font-family: var(--font-sans);
-  font-size: clamp(2rem, 4.8vw, 3rem);
-  font-weight: 600;
-  line-height: 1.07;
-  letter-spacing: -0.048em;
+  font-size: clamp(2.125rem, 5.2vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.042em;
   color: var(--color-navy);
 }
 
@@ -714,13 +715,13 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 }
 
 .section-sub {
-  margin-top: 14px;
+  margin-top: 16px;
   max-width: 600px;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: clamp(1.0625rem, 1.25vw, 1.125rem);
   font-weight: 400;
-  line-height: 1.55;
-  letter-spacing: -0.005em;
+  line-height: 1.6;
+  letter-spacing: -0.008em;
   color: var(--color-text);
 }
 
@@ -792,7 +793,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 }
 
 .hero-content {
-  max-width: 650px;
+  max-width: 760px;
   opacity: calc(1 - var(--hero-progress, 0) * 0.22);
   transform: translate3d(0, calc(var(--hero-progress, 0) * 14px), 0);
   will-change: transform, opacity;
@@ -800,22 +801,27 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .hero-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.9rem, 7.6vw, 2.75rem);
-  font-weight: 600;
-  line-height: 1.07;
-  letter-spacing: -0.05em;
-  color: #faf7f0;
+  font-size: clamp(2.35rem, 9.2vw, 3.125rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  color: #ffffff;
   max-width: 100%;
   text-shadow: 0 2px 24px rgba(10, 12, 16, 0.42);
 }
 
 .hero-title-accent {
-  color: #e6bc7f;
+  background: linear-gradient(96deg, #f87171 0%, #f59e0b 48%, #ecc976 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 18px rgba(10, 12, 16, 0.36));
 }
 
 .hero-copy {
-  margin-top: 22px;
-  max-width: 500px;
+  margin-top: 24px;
+  max-width: 540px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -823,9 +829,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .hero-lead {
   font-family: var(--font-sans);
-  font-size: 1.03125rem;
+  font-size: clamp(1.0625rem, 1.35vw, 1.1875rem);
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.6;
   letter-spacing: -0.008em;
   color: rgba(235, 229, 218, 0.9);
   text-shadow: 0 1px 14px rgba(10, 12, 16, 0.45);
@@ -989,11 +995,12 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   display: inline-flex;
   align-items: baseline;
   font-family: var(--font-sans);
-  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
-  font-weight: 600;
-  line-height: 1.1;
+  font-size: clamp(1.75rem, 2.75vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.08;
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
   color: #faf7f0;
   transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1004,14 +1011,15 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 }
 
 .hero-metric-unit {
-  margin-left: 0.22em;
-  font-weight: 600;
-  letter-spacing: -0.035em;
+  margin-left: 0.2em;
+  font-size: 0.78em;
+  font-weight: 300;
+  letter-spacing: -0.03em;
 }
 
 .hero-metric-plus {
-  margin-left: 0.06em;
-  font-weight: 600;
+  margin-left: 0.05em;
+  font-weight: 300;
   color: #e6bc7f;
   transition: color 360ms ease, transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1024,12 +1032,12 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 .hero-metric-label {
   position: relative;
   z-index: 1;
-  margin-top: 6px;
+  margin-top: 8px;
   font-family: var(--font-sans);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1.35;
-  color: rgba(224, 217, 204, 0.78);
+  line-height: 1.45;
+  color: rgba(224, 217, 204, 0.8);
   transition: color 360ms ease;
 }
 
@@ -1058,18 +1066,18 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .about-lead {
   font-family: var(--font-sans);
-  font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.125rem, 1.8vw, 1.3125rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.022em;
   color: var(--color-navy);
 }
 
 .about-text {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--color-text);
 }
 
@@ -1152,8 +1160,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 .trust-pillar-title {
   font-family: var(--font-sans);
   font-size: 1.0625rem;
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 500;
+  line-height: 1.3;
   letter-spacing: -0.02em;
   color: var(--color-navy);
   margin-bottom: 6px;
@@ -1161,8 +1169,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .trust-pillar-desc {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  line-height: 1.45;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.55;
   color: var(--color-text);
 }
 
@@ -1255,8 +1264,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   background-color: rgba(241, 237, 228, 0.58);
   border: 1px solid rgba(23, 27, 34, 0.075);
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.78125rem;
+  font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: var(--color-navy);
@@ -1319,26 +1328,27 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   background-color: rgba(182, 132, 62, 0.13);
   border: 1px solid rgba(182, 132, 62, 0.3);
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.78125rem;
+  font-weight: 500;
   letter-spacing: 0.02em;
   color: #855b1e;
 }
 
 .workflow-panel-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.375rem, 2.4vw, 1.625rem);
-  font-weight: 500;
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.032em;
   color: var(--color-navy);
   margin-bottom: 12px;
 }
 
 .workflow-panel-desc {
   font-family: var(--font-sans);
-  font-size: 1rem;
-  line-height: 1.55;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.6;
   color: var(--color-text);
 }
 
@@ -1434,8 +1444,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   align-items: center;
   justify-content: center;
   font-family: var(--font-sans);
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: 0.9375rem;
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
   color: var(--color-navy);
   transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
@@ -1465,8 +1475,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 .workflow-step-title {
   font-family: var(--font-sans);
   font-size: 1.0625rem;
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 500;
+  line-height: 1.3;
   letter-spacing: -0.02em;
   color: var(--color-navy);
 }
@@ -1477,8 +1487,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   border-radius: 9999px;
   background-color: rgba(182, 132, 62, 0.14);
   font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 500;
   color: #855b1e;
 }
 
@@ -1488,8 +1498,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .workflow-step-desc {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  line-height: 1.45;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.55;
   color: var(--color-text);
 }
 
@@ -1529,8 +1540,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .services-scroll-count {
   font-family: var(--font-sans);
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: 0.9375rem;
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
   color: var(--color-navy);
@@ -1538,8 +1549,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .services-scroll-name {
   font-family: var(--font-sans);
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 400;
   color: var(--color-text-muted);
   text-align: right;
   white-space: nowrap;
@@ -1614,10 +1625,10 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .service-num {
   font-family: var(--font-sans);
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: clamp(1.75rem, 2.4vw, 2.125rem);
+  font-weight: 300;
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
   font-variant-numeric: tabular-nums;
   color: var(--color-numeral);
   transition: color 360ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -1661,29 +1672,29 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .service-title-en {
   font-family: var(--font-sans);
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.028em;
   color: var(--color-navy);
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .service-title-id {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  line-height: 1.35;
-  letter-spacing: -0.015em;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.012em;
   color: #855b1e;
   margin-bottom: 12px;
 }
 
 .service-desc {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--color-text);
 }
 
@@ -1714,8 +1725,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   align-self: flex-start;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 500;
+  letter-spacing: -0.012em;
   color: var(--color-navy);
   text-decoration: none;
   border-bottom: 1px solid var(--color-border-strong);
@@ -1762,19 +1773,19 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .service-conversion-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.04em;
+  font-size: clamp(1.5rem, 2.3vw, 1.875rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
   color: var(--color-navy);
   margin-bottom: 10px;
 }
 
 .service-conversion-desc {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--color-text);
   max-width: 540px;
 }
@@ -1846,10 +1857,10 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .motto-statement {
   font-family: var(--font-sans);
-  font-size: clamp(1.75rem, 4.2vw, 3rem);
-  font-weight: 600;
+  font-size: clamp(1.9rem, 3.8vw, 3.25rem);
+  font-weight: 300;
   line-height: 1.12;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.04em;
   color: #faf7f0;
   max-width: 880px;
 }
@@ -1864,7 +1875,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 .motto-sub {
   font-family: var(--font-sans);
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(228, 221, 208, 0.72);
@@ -1948,17 +1959,17 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .team-exp-num {
   font-family: var(--font-sans);
-  font-size: 1.125rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: -0.04em;
   color: #e6bc7f;
 }
 
 .team-exp-text {
   font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  line-height: 1.2;
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.25;
   letter-spacing: 0.01em;
   text-align: left;
   color: rgba(246, 241, 231, 0.88);
@@ -1974,10 +1985,10 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .team-quote {
   font-family: var(--font-sans);
-  font-size: clamp(1.125rem, 2vw, 1.375rem);
-  font-weight: 500;
-  line-height: 1.45;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.1875rem, 2vw, 1.4375rem);
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
   color: var(--color-navy);
 }
 
@@ -1989,18 +2000,18 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .team-name {
   font-family: var(--font-sans);
-  font-size: clamp(1.375rem, 2.3vw, 1.75rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.5rem, 2.4vw, 1.875rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.032em;
   color: var(--color-navy);
 }
 
 .team-role {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.45;
   color: #855b1e;
 }
 
@@ -2037,10 +2048,10 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .contact-sub {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: clamp(1.0625rem, 1.25vw, 1.125rem);
   font-weight: 400;
-  line-height: 1.55;
-  letter-spacing: -0.005em;
+  line-height: 1.6;
+  letter-spacing: -0.008em;
   color: var(--color-text);
 }
 
@@ -2064,18 +2075,18 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .contact-office-title {
   font-family: var(--font-sans);
-  font-size: 1.375rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.032em;
   color: var(--color-navy);
 }
 
 .contact-office-firm {
   margin-top: 4px;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--color-text-muted);
 }
@@ -2153,8 +2164,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .contact-label {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
@@ -2162,9 +2173,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .contact-value {
   font-family: var(--font-sans);
-  font-size: 0.96875rem;
+  font-size: 1.0625rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--color-text);
 }
 
@@ -2173,9 +2184,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   align-items: center;
   min-height: 44px;
   font-family: var(--font-sans);
-  font-size: 0.96875rem;
-  font-weight: 600;
-  line-height: 1.45;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.5;
   letter-spacing: -0.015em;
   color: var(--color-navy);
   text-decoration: none;
@@ -2196,8 +2207,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   margin-top: 4px;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 500;
+  letter-spacing: -0.012em;
   color: var(--color-red);
   text-decoration: none;
   border-bottom: 1px solid rgba(178, 36, 30, 0.36);
@@ -2253,10 +2264,10 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   border: none;
   cursor: pointer;
   font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.02em;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.018em;
   color: var(--color-navy);
 }
 
@@ -2289,8 +2300,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .faq-answer {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  line-height: 1.55;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.6;
   color: var(--color-text);
 }
 
@@ -2311,7 +2323,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .faq-footer-text {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--color-text);
 }
 
@@ -2321,8 +2335,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   gap: 6px;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 500;
+  letter-spacing: -0.012em;
   color: var(--color-navy);
   text-decoration: none;
   border-bottom: 1px solid var(--color-gold);
@@ -2379,8 +2393,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .footer-name {
   font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.0625rem;
+  font-weight: 500;
   letter-spacing: -0.02em;
   color: #faf7f0;
 }
@@ -2388,6 +2402,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 .footer-motto {
   margin-top: 2px;
   font-size: 0.75rem;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #dda961;
@@ -2395,9 +2410,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .footer-summary {
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
   color: rgba(229, 222, 209, 0.74);
 }
 
@@ -2422,9 +2437,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   align-items: center;
   min-height: 36px;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: -0.015em;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: -0.012em;
   color: rgba(246, 241, 231, 0.82);
   text-decoration: none;
   transition: color var(--transition-base);
@@ -2440,7 +2455,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 }
 
 .footer-copy {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 400;
   color: rgba(224, 217, 204, 0.65);
 }
@@ -2466,7 +2481,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   border-radius: 999px;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.015em;
   text-decoration: none;
   box-shadow:
@@ -2552,7 +2567,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   }
 
   .hero-title {
-    font-size: clamp(2.65rem, 5.4vw, 3.6rem);
+    font-size: clamp(3rem, 6.4vw, 4.25rem);
   }
 
   .hero-actions .btn,
@@ -2728,7 +2743,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   }
 
   .section-title {
-    font-size: clamp(2.5rem, 4.2vw, 3rem);
+    font-size: clamp(2.625rem, 3.45vw, 3.25rem);
   }
 
   .hero,
@@ -2748,14 +2763,14 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   }
 
   .hero-content {
-    max-width: 660px;
+    max-width: 960px;
   }
 
   .hero-title {
-    font-size: clamp(2.55rem, 3.65vw, 3.25rem);
-    font-weight: 600;
-    line-height: 1.07;
-    letter-spacing: -0.048em;
+    font-size: clamp(4.75rem, 5.5vw, 5.25rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
   }
 
   .workflow-grid {
@@ -2769,10 +2784,6 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 }
 
 @media (min-width: 1024px) {
-  .section-title {
-    font-size: 2.875rem;
-  }
-
   .trust-pillars {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
