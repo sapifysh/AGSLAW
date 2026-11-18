@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+  <!-- Placeholder logo monogram AS: ganti file ini dengan logo resmi beresolusi tinggi bila tersedia -->
+  <path
+    d="M24 3L41 9.5V22.5C41 33.2 33.8 41.6 24 45C14.2 41.6 7 33.2 7 22.5V9.5L24 3Z"
+    fill="#16233F"
+    stroke="#C9A227"
+    stroke-width="1.5"
+  />
+  <path
+    d="M24 6.5L37.5 11.7V22.3C37.5 31.1 31.7 38.1 24 41.2C16.3 38.1 10.5 31.1 10.5 22.3V11.7L24 6.5Z"
+    stroke="#C9A227"
+    stroke-opacity="0.35"
+    stroke-width="0.75"
+  />
+  <text
+    x="24"
+    y="28.5"
+    text-anchor="middle"
+    fill="#C9A227"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="16"
+    font-weight="500"
+    letter-spacing="1.2"
+  >AS</text>
+</svg>
