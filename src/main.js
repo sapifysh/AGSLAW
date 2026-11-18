@@ -78,7 +78,7 @@ function smoothScrollToTarget(targetEl) {
     const elapsed = now - startTime;
     const progress = Math.min(1, elapsed / duration);
     const eased = easeOutQuint(progress);
-    window.scrollTo(0, startY + distance * eased);
+    window.scrollTo({ top: startY + distance * eased, behavior: 'instant' });
 
     if (progress < 1) {
       activeScrollAnimId = window.requestAnimationFrame(step);
@@ -176,7 +176,7 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
 } else {
   const isInOrAboveViewport = (el) => {
     const rect = el.getBoundingClientRect();
-    return rect.top < window.innerHeight * 0.88;
+    return rect.top < window.innerHeight * 0.94;
   };
 
   const revealInOrAboveViewport = () => {
@@ -191,15 +191,15 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   const observer = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight * 0.88) {
+        if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight * 0.94) {
           entry.target.classList.add('is-visible');
           obs.unobserve(entry.target);
         }
       });
     },
     {
-      threshold: 0.08,
-      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.04,
+      rootMargin: '0px 0px -4% 0px',
     }
   );
 
@@ -232,7 +232,63 @@ const servicesCountEl = document.getElementById('services-scroll-count');
 const servicesNameEl = document.getElementById('services-scroll-name');
 const servicesBarEl = document.getElementById('services-scroll-bar');
 
+const heroMetricsStrip = document.querySelector('.hero-metrics');
+const heroMetricCells = Array.from(document.querySelectorAll('.hero-metric'));
+let hasAnimatedMetrics = false;
+let spotlightIdx = 0;
+let spotlightTimerId = null;
+let isPointerInsideMetrics = false;
+
+function setMetricSpotlight(targetIdx) {
+  heroMetricCells.forEach((cell, idx) => {
+    cell.classList.toggle('is-spotlight', idx === targetIdx);
+  });
+}
+
 let scrollTicking = false;
+let targetHeroProgress = 0;
+let currentHeroProgress = 0;
+let heroLerpRafId = null;
+let lastHeroLerpTs = 0;
+
+function stepHeroScrollDepth(now) {
+  heroLerpRafId = null;
+  if (!heroSection || prefersReducedMotion) return;
+
+  const dt = lastHeroLerpTs ? Math.min(48, now - lastHeroLerpTs) : 16.67;
+  lastHeroLerpTs = now;
+  const alpha = 1 - Math.pow(1 - 0.16, dt / 16.67);
+  currentHeroProgress += (targetHeroProgress - currentHeroProgress) * alpha;
+
+  if (Math.abs(targetHeroProgress - currentHeroProgress) <= 0.0008) {
+    currentHeroProgress = targetHeroProgress;
+  }
+
+  heroSection.style.setProperty('--hero-progress', currentHeroProgress.toFixed(4));
+
+  if (
+    hasAnimatedMetrics &&
+    heroMetricCells.length > 0 &&
+    !isPointerInsideMetrics &&
+    currentHeroProgress > 0.03 &&
+    currentHeroProgress < 0.96
+  ) {
+    const scrollMappedIdx = Math.min(
+      heroMetricCells.length - 1,
+      Math.floor(currentHeroProgress * heroMetricCells.length * 1.15)
+    );
+    if (scrollMappedIdx !== spotlightIdx) {
+      spotlightIdx = scrollMappedIdx;
+      setMetricSpotlight(spotlightIdx);
+    }
+  }
+
+  if (Math.abs(targetHeroProgress - currentHeroProgress) > 0.0008) {
+    heroLerpRafId = window.requestAnimationFrame(stepHeroScrollDepth);
+  } else {
+    lastHeroLerpTs = 0;
+  }
+}
 
 function updateScrollChoreography() {
   scrollTicking = false;
@@ -275,10 +331,13 @@ function updateScrollChoreography() {
     }
   }
 
-  // 2. Hero multi-plane scroll depth
+  // 2. Hero multi-plane scroll depth (lerp-damped 60-120fps)
   if (heroSection && !prefersReducedMotion) {
-    const heroProgress = Math.min(1, Math.max(0, scrollY / 520));
-    heroSection.style.setProperty('--hero-progress', heroProgress.toFixed(3));
+    const heroTravel = Math.max(380, heroSection.offsetHeight * 0.72);
+    targetHeroProgress = Math.min(1, Math.max(0, scrollY / heroTravel));
+    if (!heroLerpRafId) {
+      heroLerpRafId = window.requestAnimationFrame(stepHeroScrollDepth);
+    }
   }
 
   // 3. Scroll-driven workflow stepper (01 -> 02 -> 03)
@@ -376,29 +435,17 @@ if (faqItems.length > 0) {
   });
 }
 
-// Hero Metrics Choreography (Staggered Entrance, easeOutExpo Count-Up, Top Hairline Gauge & Ambient Spotlight)
-const heroMetricsStrip = document.querySelector('.hero-metrics');
-const heroMetricCells = Array.from(document.querySelectorAll('.hero-metric'));
-
+// Hero Metrics Choreography (Staggered Entrance, easeOutExpo Count-Up, Top Hairline Gauge & Ambient/Scroll Spotlight)
 if (heroMetricsStrip && heroMetricCells.length > 0) {
-  let hasAnimatedMetrics = false;
-  let spotlightIdx = 0;
-  let spotlightTimerId = null;
-  let isPointerInsideStrip = false;
-
-  const setActiveSpotlight = (targetIdx) => {
-    heroMetricCells.forEach((cell, idx) => {
-      cell.classList.toggle('is-spotlight', idx === targetIdx);
-    });
-  };
-
   const startAmbientSpotlight = () => {
     if (prefersReducedMotion || spotlightTimerId) return;
-    setActiveSpotlight(spotlightIdx);
+    setMetricSpotlight(spotlightIdx);
     spotlightTimerId = window.setInterval(() => {
-      if (isPointerInsideStrip) return;
+      if (isPointerInsideMetrics || (currentHeroProgress > 0.03 && currentHeroProgress < 0.96)) {
+        return;
+      }
       spotlightIdx = (spotlightIdx + 1) % heroMetricCells.length;
-      setActiveSpotlight(spotlightIdx);
+      setMetricSpotlight(spotlightIdx);
     }, 3200);
   };
 
@@ -406,9 +453,9 @@ if (heroMetricsStrip && heroMetricCells.length > 0) {
     cell.style.setProperty('--metric-delay', `${idx * 110}ms`);
 
     cell.addEventListener('pointerenter', () => {
-      isPointerInsideStrip = true;
+      isPointerInsideMetrics = true;
       spotlightIdx = idx;
-      setActiveSpotlight(idx);
+      setMetricSpotlight(idx);
     });
 
     cell.addEventListener('pointermove', (event) => {
@@ -421,8 +468,8 @@ if (heroMetricsStrip && heroMetricCells.length > 0) {
   });
 
   heroMetricsStrip.addEventListener('pointerleave', () => {
-    isPointerInsideStrip = false;
-    setActiveSpotlight(spotlightIdx);
+    isPointerInsideMetrics = false;
+    setMetricSpotlight(spotlightIdx);
   });
 
   const runHeroMetricsEntrance = () => {

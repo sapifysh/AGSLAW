@@ -50,6 +50,10 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+html.js-anim {
+  scroll-behavior: auto;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -639,7 +643,7 @@ section[id] {
    01. HERO SECTION (SOFT LIGHT DOT-MATRIX + SHARP TYPOGRAPHY)
    ========================================================================== */
 .hero {
-  padding-block: 116px 76px;
+  padding-block: 112px 64px;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -651,8 +655,9 @@ section[id] {
   background-size: 22px 22px;
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 25%, #000 25%, transparent 80%);
   mask-image: radial-gradient(ellipse 80% 70% at 50% 25%, #000 25%, transparent 80%);
-  transform: translate3d(0, calc(var(--hero-progress, 0) * 20px), 0);
-  will-change: transform;
+  opacity: calc(1 - var(--hero-progress, 0) * 0.45);
+  transform: translate3d(0, calc(var(--hero-progress, 0) * 38px), 0);
+  will-change: transform, opacity;
   pointer-events: none;
   z-index: 0;
 }
@@ -664,8 +669,9 @@ section[id] {
 
 .hero-content {
   max-width: 780px;
-  transform: translate3d(0, calc(var(--hero-progress, 0) * -14px), 0);
-  will-change: transform;
+  opacity: calc(1 - var(--hero-progress, 0) * 0.22);
+  transform: translate3d(0, calc(var(--hero-progress, 0) * 14px), 0);
+  will-change: transform, opacity;
 }
 
 .hero-title {
@@ -716,10 +722,11 @@ section[id] {
 /* 4-Column Animated Trust Metrics Strip (Crisp Elevated White Surface) */
 .hero-metrics {
   position: relative;
-  margin-top: 52px;
+  z-index: 2;
+  margin-top: 48px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  background-color: rgba(255, 255, 255, 0.94);
+  background-color: rgba(255, 255, 255, 0.96);
   border: 1px solid var(--color-border);
   border-radius: 16px;
   box-shadow:
@@ -727,8 +734,26 @@ section[id] {
     0 18px 40px -18px rgba(12, 18, 32, 0.12),
     0 2px 6px rgba(12, 18, 32, 0.03);
   overflow: hidden;
-  transform: translate3d(0, calc(var(--hero-progress, 0) * -32px), 0);
-  will-change: transform;
+  transition: border-color 360ms ease, box-shadow 360ms ease;
+}
+
+/* Smooth scroll-coupled diagonal specular light sweep across the 4 metrics */
+.hero-metrics::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 55%;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(181, 137, 46, 0.05) 35%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(181, 137, 46, 0.05) 65%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translate3d(calc(var(--hero-progress, 0) * 240% - 75%), 0, 0);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-metric {
@@ -2230,8 +2255,10 @@ section[id] {
   .hero::before,
   .hero-content,
   .hero-metrics,
+  .hero-metrics::before,
   .site-header.is-scrolled {
     transform: none !important;
+    opacity: 1 !important;
   }
 
   .card,
@@ -2434,7 +2461,7 @@ section[id] {
   }
 
   .hero {
-    padding-block: 152px 104px;
+    padding-block: 144px 84px;
   }
 
   .hero-title {
