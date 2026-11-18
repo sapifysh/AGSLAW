@@ -57,7 +57,7 @@ html.js-anim {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: -0.008em;
@@ -304,7 +304,7 @@ section[id] {
   display: inline-flex;
   align-items: center;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.015em;
@@ -365,7 +365,7 @@ section[id] {
   min-height: 36px;
   padding: 7px 16px;
   border-radius: 9999px;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   background-color: rgba(23, 27, 34, 0.9);
   border-color: rgba(23, 27, 34, 0.85);
@@ -557,7 +557,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   padding-inline: 12px;
   border-radius: 12px;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   letter-spacing: -0.015em;
   color: var(--color-navy);
@@ -597,7 +597,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   padding: 10px 22px;
   border-radius: var(--radius-btn);
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.015em;
@@ -615,7 +615,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 .btn-lg {
   min-height: 48px;
   padding: 13px 28px;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 500;
 }
 
@@ -703,10 +703,10 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .section-title {
   font-family: var(--font-sans);
-  font-size: clamp(2.125rem, 5.2vw, 2.75rem);
+  font-size: clamp(1.875rem, 5vw, 2.25rem);
   font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: -0.042em;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
   color: var(--color-navy);
 }
 
@@ -718,7 +718,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   margin-top: 16px;
   max-width: 600px;
   font-family: var(--font-sans);
-  font-size: clamp(1.0625rem, 1.25vw, 1.125rem);
+  font-size: clamp(1rem, 1.15vw, 1.0625rem);
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: -0.008em;
@@ -801,10 +801,10 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .hero-title {
   font-family: var(--font-sans);
-  font-size: clamp(2.35rem, 9.2vw, 3.125rem);
+  font-size: clamp(2.125rem, 9vw, 2.5rem);
   font-weight: 300;
-  line-height: 1.08;
-  letter-spacing: -0.045em;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
   color: #ffffff;
   max-width: 100%;
   text-shadow: 0 2px 24px rgba(10, 12, 16, 0.42);
@@ -820,7 +820,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 }
 
 .hero-copy {
-  margin-top: 24px;
+  margin-top: 22px;
   max-width: 540px;
   display: flex;
   flex-direction: column;
@@ -829,7 +829,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .hero-lead {
   font-family: var(--font-sans);
-  font-size: clamp(1.0625rem, 1.35vw, 1.1875rem);
+  font-size: clamp(1rem, 1.15vw, 1.0625rem);
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: -0.008em;
@@ -865,113 +865,25 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   color: #ffffff;
 }
 
-/* 4-Column Animated Trust Metrics Strip (Smoked Obsidian Liquid Glass over Stone Plaza) */
-.hero-metrics {
+/* Cardless Metrics Strip (Dihimpit antara Hero & Tentang Kami) */
+.metrics-strip {
   position: relative;
   z-index: 2;
-  margin-top: 48px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background-color: rgba(16, 19, 25, 0.52);
-  -webkit-backdrop-filter: blur(18px) saturate(135%);
-  backdrop-filter: blur(18px) saturate(135%);
-  border: 1px solid rgba(232, 200, 152, 0.18);
-  border-radius: 16px;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 248, 235, 0.12),
-    0 20px 44px -18px rgba(6, 8, 12, 0.65),
-    0 4px 12px rgba(6, 8, 12, 0.3);
-  overflow: hidden;
-  transition: border-color 360ms ease, box-shadow 360ms ease;
+  padding-block: 30px;
+  background: linear-gradient(180deg, #f3efe6 0%, #ede8dc 100%);
+  border-bottom: 1px solid var(--color-border);
 }
 
-/* Smooth scroll-coupled diagonal specular light sweep across the 4 metrics */
-.hero-metrics::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  width: 55%;
-  background: linear-gradient(
-    105deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(229, 188, 129, 0.05) 35%,
-    rgba(255, 248, 232, 0.08) 50%,
-    rgba(229, 188, 129, 0.05) 65%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: translate3d(calc(var(--hero-progress, 0) * 240% - 75%), 0, 0);
-  pointer-events: none;
-  z-index: 0;
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 24px;
 }
 
 .hero-metric {
-  --metric-fill: 1;
-  --mouse-x: 50%;
-  --mouse-y: 50%;
   position: relative;
-  padding: 22px 20px;
-  border-bottom: 1px solid rgba(255, 248, 232, 0.08);
-  border-right: 1px solid rgba(255, 248, 232, 0.08);
-  background-color: transparent;
-  overflow: hidden;
-  transition:
-    background-color 420ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-metric:nth-child(2n) {
-  border-right: none;
-}
-
-.hero-metric:nth-last-child(-n + 2) {
-  border-bottom: none;
-}
-
-/* Top animated architectural progress hairline */
-.hero-metric::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #e5bc81 0%, #c83e35 100%);
-  transform: scaleX(var(--metric-fill, 1));
-  transform-origin: left center;
-  opacity: 0.28;
-  transition:
-    opacity 420ms cubic-bezier(0.16, 1, 0.3, 1),
-    height 320ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Ambient radial sandstone-bronze sheen on spotlight or pointer hover */
-.hero-metric::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    180px circle at var(--mouse-x, 50%) var(--mouse-y, 20%),
-    rgba(229, 188, 129, 0.14),
-    transparent 75%
-  );
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 420ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-metric.is-spotlight,
-.hero-metric:hover {
-  background-color: rgba(229, 188, 129, 0.08);
-}
-
-.hero-metric.is-spotlight::before,
-.hero-metric:hover::before {
-  opacity: 0.92;
-}
-
-.hero-metric.is-spotlight::after,
-.hero-metric:hover::after {
-  opacity: 1;
+  padding: 2px 0;
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Staggered cascade entrance when JS animation is active */
@@ -980,8 +892,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   transform: translate3d(0, 14px, 0);
   transition:
     opacity 620ms cubic-bezier(0.16, 1, 0.3, 1) var(--metric-delay, 0ms),
-    transform 620ms cubic-bezier(0.16, 1, 0.3, 1) var(--metric-delay, 0ms),
-    background-color 420ms cubic-bezier(0.16, 1, 0.3, 1);
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1) var(--metric-delay, 0ms);
 }
 
 .js-anim .hero-metric.is-entered {
@@ -991,17 +902,16 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .hero-metric-val {
   position: relative;
-  z-index: 1;
   display: inline-flex;
   align-items: baseline;
   font-family: var(--font-sans);
-  font-size: clamp(1.75rem, 2.75vw, 2.5rem);
+  font-size: clamp(1.75rem, 2.65vw, 2.5rem);
   font-weight: 300;
   line-height: 1.08;
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
-  color: #faf7f0;
+  color: var(--color-navy);
   transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1020,30 +930,29 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 .hero-metric-plus {
   margin-left: 0.05em;
   font-weight: 300;
-  color: #e6bc7f;
+  color: var(--color-gold);
   transition: color 360ms ease, transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-metric.is-spotlight .hero-metric-plus,
 .hero-metric:hover .hero-metric-plus {
-  color: #eb6f63;
+  color: var(--color-red);
 }
 
 .hero-metric-label {
   position: relative;
-  z-index: 1;
-  margin-top: 8px;
+  margin-top: 6px;
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.45;
-  color: rgba(224, 217, 204, 0.8);
+  color: var(--color-text-muted);
   transition: color 360ms ease;
 }
 
 .hero-metric.is-spotlight .hero-metric-label,
 .hero-metric:hover .hero-metric-label {
-  color: #faf7f0;
+  color: var(--color-navy);
 }
 
 /* ==========================================================================
@@ -1066,16 +975,16 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .about-lead {
   font-family: var(--font-sans);
-  font-size: clamp(1.125rem, 1.8vw, 1.3125rem);
+  font-size: clamp(1rem, 1.15vw, 1.0625rem);
   font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: -0.022em;
+  line-height: 1.6;
+  letter-spacing: -0.012em;
   color: var(--color-navy);
 }
 
 .about-text {
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-text);
@@ -1336,17 +1245,17 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .workflow-panel-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.032em;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
   color: var(--color-navy);
   margin-bottom: 12px;
 }
 
 .workflow-panel-desc {
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-text);
@@ -1625,7 +1534,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .service-num {
   font-family: var(--font-sans);
-  font-size: clamp(1.75rem, 2.4vw, 2.125rem);
+  font-size: clamp(1.75rem, 2.6vw, 2.375rem);
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.045em;
@@ -1672,17 +1581,17 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .service-title-en {
   font-family: var(--font-sans);
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   font-weight: 400;
-  line-height: 1.22;
-  letter-spacing: -0.028em;
+  line-height: 1.24;
+  letter-spacing: -0.025em;
   color: var(--color-navy);
   margin-bottom: 5px;
 }
 
 .service-title-id {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.012em;
@@ -1692,7 +1601,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .service-desc {
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-text);
@@ -1724,7 +1633,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   min-height: 40px;
   align-self: flex-start;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: -0.012em;
   color: var(--color-navy);
@@ -1773,17 +1682,17 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .service-conversion-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.5rem, 2.3vw, 1.875rem);
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
   font-weight: 400;
-  line-height: 1.18;
-  letter-spacing: -0.035em;
+  line-height: 1.2;
+  letter-spacing: -0.032em;
   color: var(--color-navy);
   margin-bottom: 10px;
 }
 
 .service-conversion-desc {
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-text);
@@ -1857,7 +1766,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .motto-statement {
   font-family: var(--font-sans);
-  font-size: clamp(1.9rem, 3.8vw, 3.25rem);
+  font-size: clamp(1.75rem, 2.8vw, 2.625rem);
   font-weight: 300;
   line-height: 1.12;
   letter-spacing: -0.04em;
@@ -1985,9 +1894,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .team-quote {
   font-family: var(--font-sans);
-  font-size: clamp(1.1875rem, 2vw, 1.4375rem);
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.52;
   letter-spacing: -0.02em;
   color: var(--color-navy);
 }
@@ -2000,16 +1909,16 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .team-name {
   font-family: var(--font-sans);
-  font-size: clamp(1.5rem, 2.4vw, 1.875rem);
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
   font-weight: 400;
-  line-height: 1.18;
-  letter-spacing: -0.032em;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
   color: var(--color-navy);
 }
 
 .team-role {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.45;
   color: #855b1e;
@@ -2048,7 +1957,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .contact-sub {
   font-family: var(--font-sans);
-  font-size: clamp(1.0625rem, 1.25vw, 1.125rem);
+  font-size: clamp(1rem, 1.15vw, 1.0625rem);
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: -0.008em;
@@ -2075,10 +1984,10 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .contact-office-title {
   font-family: var(--font-sans);
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.032em;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
   color: var(--color-navy);
 }
 
@@ -2173,7 +2082,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .contact-value {
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-text);
@@ -2184,7 +2093,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   align-items: center;
   min-height: 44px;
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: -0.015em;
@@ -2206,7 +2115,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   align-self: flex-start;
   margin-top: 4px;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: -0.012em;
   color: var(--color-red);
@@ -2264,10 +2173,10 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   border: none;
   cursor: pointer;
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 1.45;
-  letter-spacing: -0.018em;
+  line-height: 1.48;
+  letter-spacing: -0.016em;
   color: var(--color-navy);
 }
 
@@ -2300,7 +2209,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .faq-answer {
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-text);
@@ -2323,7 +2232,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .faq-footer-text {
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: var(--color-text);
@@ -2334,7 +2243,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   align-items: center;
   gap: 6px;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: -0.012em;
   color: var(--color-navy);
@@ -2393,7 +2302,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 
 .footer-name {
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: -0.02em;
   color: #faf7f0;
@@ -2437,7 +2346,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   align-items: center;
   min-height: 36px;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: -0.012em;
   color: rgba(246, 241, 231, 0.82);
@@ -2480,7 +2389,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   border: 1px solid rgba(255, 248, 235, 0.24);
   border-radius: 999px;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: -0.015em;
   text-decoration: none;
@@ -2567,7 +2476,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   }
 
   .hero-title {
-    font-size: clamp(3rem, 6.4vw, 4.25rem);
+    font-size: clamp(2.625rem, 5.2vw, 3.375rem);
   }
 
   .hero-actions .btn,
@@ -2625,20 +2534,26 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
       );
   }
 
+  .metrics-strip {
+    padding-block: 34px;
+  }
+
   .hero-metrics {
     grid-template-columns: repeat(4, 1fr);
+    gap: 0;
   }
 
   .hero-metric {
-    padding: 22px 24px;
-    border-bottom: none;
+    padding: 4px 28px;
+    border-right: 1px solid var(--color-border);
   }
 
-  .hero-metric:nth-child(2n) {
-    border-right: 1px solid rgba(255, 248, 232, 0.08);
+  .hero-metric:first-child {
+    padding-left: 0;
   }
 
   .hero-metric:last-child {
+    padding-right: 0;
     border-right: none;
   }
 
@@ -2743,15 +2658,15 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   }
 
   .section-title {
-    font-size: clamp(2.625rem, 3.45vw, 3.25rem);
+    font-size: clamp(2.25rem, 2.8vw, 2.625rem);
   }
 
   .hero,
   .hero.section-navy {
-    min-height: clamp(680px, 87svh, 825px);
+    min-height: clamp(580px, 76svh, 710px);
     display: flex;
     align-items: center;
-    padding-block: 136px 76px;
+    padding-block: 128px 80px;
   }
 
   .hero-inner {
@@ -2763,14 +2678,22 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   }
 
   .hero-content {
-    max-width: 960px;
+    max-width: 720px;
   }
 
   .hero-title {
-    font-size: clamp(4.75rem, 5.5vw, 5.25rem);
+    font-size: clamp(3.375rem, 4vw, 3.75rem);
     font-weight: 300;
-    line-height: 1.08;
-    letter-spacing: -0.045em;
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-metric-val {
+    font-size: clamp(2.25rem, 2.65vw, 2.5rem);
+  }
+
+  .service-num {
+    font-size: clamp(2.25rem, 2.6vw, 2.5rem);
   }
 
   .workflow-grid {
@@ -3064,22 +2987,35 @@ html[data-theme='dark'] .hero .btn-outline-light:hover {
   color: #ffffff;
 }
 
-html[data-theme='dark'] .hero-metrics {
-  background-color: rgba(16, 19, 25, 0.56);
-  border-color: rgba(232, 200, 152, 0.18);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 248, 235, 0.12),
-    0 20px 44px -18px rgba(0, 0, 0, 0.68),
-    0 4px 12px rgba(0, 0, 0, 0.34);
+html[data-theme='dark'] .metrics-strip {
+  background: linear-gradient(180deg, #0f1217 0%, #0b0e13 100%);
+  border-bottom-color: rgba(245, 241, 232, 0.08);
 }
 
 html[data-theme='dark'] .hero-metric {
-  border-color: rgba(255, 248, 232, 0.08);
+  border-color: rgba(245, 241, 232, 0.09);
+}
+
+html[data-theme='dark'] .hero-metric-val {
+  color: #faf7f0;
+}
+
+html[data-theme='dark'] .hero-metric-plus {
+  color: #e6bc7f;
 }
 
 html[data-theme='dark'] .hero-metric.is-spotlight .hero-metric-plus,
 html[data-theme='dark'] .hero-metric:hover .hero-metric-plus {
   color: #eb6f63;
+}
+
+html[data-theme='dark'] .hero-metric-label {
+  color: rgba(224, 217, 204, 0.78);
+}
+
+html[data-theme='dark'] .hero-metric.is-spotlight .hero-metric-label,
+html[data-theme='dark'] .hero-metric:hover .hero-metric-label {
+  color: #faf7f0;
 }
 
 /* Tentang & 4 Pilar Komitmen Visual */
