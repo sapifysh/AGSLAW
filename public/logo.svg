@@ -1,0 +1,72 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 200 220"
+  width="200"
+  height="220"
+  fill="none"
+>
+  <defs>
+    <clipPath id="shield-clip">
+      <path d="M100 12 L182 28 L182 112 C182 161 146 194 100 210 C54 194 18 161 18 112 L18 28 Z" />
+    </clipPath>
+    <path
+      id="motto-ring"
+      d="M 100,152.2 A 46.2,46.2 0 1,1 100,59.8 A 46.2,46.2 0 1,1 100,152.2"
+    />
+  </defs>
+
+  <!-- Empat kuadran perisai resmi -->
+  <g clip-path="url(#shield-clip)">
+    <rect x="0" y="0" width="100" height="106" fill="#C33F33" />
+    <rect x="100" y="0" width="100" height="106" fill="#FFFFFF" />
+    <rect x="0" y="106" width="100" height="114" fill="#FFFFFF" />
+    <rect x="100" y="106" width="100" height="114" fill="#C33F33" />
+
+    <!-- Garis salib pembagi emas -->
+    <line x1="100" y1="10" x2="100" y2="212" stroke="#C5AE6B" stroke-width="7" />
+    <line x1="16" y1="106" x2="184" y2="106" stroke="#C5AE6B" stroke-width="7" />
+  </g>
+
+  <!-- Bingkai luar perisai emas -->
+  <path
+    d="M100 12 L182 28 L182 112 C182 161 146 194 100 210 C54 194 18 161 18 112 L18 28 Z"
+    stroke="#C5AE6B"
+    stroke-width="9"
+    stroke-linejoin="miter"
+  />
+
+  <!-- Cincin motto emas -->
+  <circle cx="100" cy="106" r="59.5" fill="#C5AE6B" />
+  <circle cx="100" cy="106" r="39.5" fill="#0A0A0C" />
+
+  <!-- Teks melingkar motto -->
+  <text
+    fill="#0A0A0C"
+    font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-size="9.8"
+    font-weight="700"
+    letter-spacing="0.9"
+  >
+    <textPath
+      href="#motto-ring"
+      xlink:href="#motto-ring"
+      startOffset="50%"
+      text-anchor="middle"
+    >
+      - IN GOD WE TRUST - IN JUSTICE WE FIGHT
+    </textPath>
+  </text>
+
+  <!-- Monogram AS emas -->
+  <text
+    x="99"
+    y="122"
+    text-anchor="middle"
+    fill="#C5AE6B"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="47"
+    font-weight="400"
+    letter-spacing="-4.5"
+  >AS</text>
+</svg>

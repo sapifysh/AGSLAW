@@ -140,8 +140,9 @@ section[id] {
 
 .brand-logo {
   flex-shrink: 0;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 44px;
+  object-fit: contain;
 }
 
 .brand-name {
@@ -826,9 +827,10 @@ section[id] {
 }
 
 .brand-logo--footer {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 42px;
   flex-shrink: 0;
+  object-fit: contain;
 }
 
 .footer-name {

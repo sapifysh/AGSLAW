@@ -1,14 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
-  <rect width="32" height="32" rx="6" fill="#16233F" />
-  <rect x="1.5" y="1.5" width="29" height="29" rx="4.5" stroke="#C9A227" stroke-opacity="0.55" stroke-width="1" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="32" height="32" fill="none">
+  <defs>
+    <clipPath id="fav-shield">
+      <path d="M100 12 L182 28 L182 112 C182 161 146 194 100 210 C54 194 18 161 18 112 L18 28 Z" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#fav-shield)">
+    <rect x="0" y="0" width="100" height="106" fill="#C33F33" />
+    <rect x="100" y="0" width="100" height="106" fill="#FFFFFF" />
+    <rect x="0" y="106" width="100" height="114" fill="#FFFFFF" />
+    <rect x="100" y="106" width="100" height="114" fill="#C33F33" />
+    <line x1="100" y1="10" x2="100" y2="212" stroke="#C5AE6B" stroke-width="9" />
+    <line x1="16" y1="106" x2="184" y2="106" stroke="#C5AE6B" stroke-width="9" />
+  </g>
+  <path
+    d="M100 12 L182 28 L182 112 C182 161 146 194 100 210 C54 194 18 161 18 112 L18 28 Z"
+    stroke="#C5AE6B"
+    stroke-width="11"
+    stroke-linejoin="miter"
+  />
+  <circle cx="100" cy="106" r="59" fill="#C5AE6B" />
+  <circle cx="100" cy="106" r="42" fill="#0A0A0C" />
   <text
-    x="16"
-    y="20.5"
+    x="99"
+    y="123"
     text-anchor="middle"
-    fill="#C9A227"
+    fill="#C5AE6B"
     font-family="Georgia, 'Times New Roman', serif"
-    font-size="13"
-    font-weight="500"
-    letter-spacing="0.8"
+    font-size="49"
+    font-weight="400"
+    letter-spacing="-4.5"
   >AS</text>
 </svg>
