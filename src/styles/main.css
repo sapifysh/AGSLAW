@@ -673,11 +673,11 @@ section[id] {
   width: 100%;
 }
 
-/* 4-Column Trust Metrics Strip (Crisp Elevated White Surface) */
+/* 3-Column Trust Metrics Strip (Crisp Elevated White Surface) */
 .hero-metrics {
   margin-top: 52px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   background-color: rgba(255, 255, 255, 0.92);
   border: 1px solid var(--color-border);
   border-radius: 16px;
@@ -689,16 +689,11 @@ section[id] {
 }
 
 .hero-metric {
-  padding: 20px 18px;
+  padding: 20px 22px;
   border-bottom: 1px solid var(--color-border);
-  border-right: 1px solid var(--color-border);
 }
 
-.hero-metric:nth-child(2n) {
-  border-right: none;
-}
-
-.hero-metric:nth-last-child(-n + 2) {
+.hero-metric:last-child {
   border-bottom: none;
 }
 
@@ -1973,15 +1968,12 @@ section[id] {
   }
 
   .hero-metrics {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .hero-metric {
-    padding: 22px 24px;
+    padding: 22px 26px;
     border-bottom: none;
-  }
-
-  .hero-metric:nth-child(2n) {
     border-right: 1px solid var(--color-border);
   }
 
