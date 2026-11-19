@@ -208,13 +208,19 @@
       <section id="beranda" class="hero section-navy">
         <div class="hero-bg" aria-hidden="true">
           <picture class="hero-bg-picture">
+            <source
+              srcset="/hero-courthouse-hdr.avif"
+              type="image/avif"
+              media="(dynamic-range: high)"
+            />
+            <source srcset="/hero-courthouse.avif" type="image/avif" />
             <source srcset="/hero-courthouse.webp" type="image/webp" />
             <img
               src="/hero-courthouse.jpg"
               alt=""
               class="hero-bg-img"
-              width="1024"
-              height="571"
+              width="2560"
+              height="1440"
               fetchpriority="high"
               decoding="async"
             />
