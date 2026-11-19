@@ -590,3 +590,51 @@ if (heroMetricsStrip && heroMetricCells.length > 0) {
   }
 }
 
+// Hero background ambient courtroom video (autoplay muted loop + pause offscreen)
+const heroBgVideo = document.querySelector('.hero-bg-video');
+
+if (heroBgVideo) {
+  if (prefersReducedMotion) {
+    heroBgVideo.pause();
+  } else {
+    const markVideoReady = () => {
+      heroBgVideo.classList.add('is-ready');
+    };
+
+    if (heroBgVideo.readyState >= 2) {
+      markVideoReady();
+    } else {
+      heroBgVideo.addEventListener('playing', markVideoReady, { once: true });
+      heroBgVideo.addEventListener('canplay', markVideoReady, { once: true });
+    }
+
+    const playSafe = () => {
+      const playPromise = heroBgVideo.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {
+          // Autoplay blocked (e.g. Low Power Mode): keep static poster visible cleanly
+        });
+      }
+    };
+
+    playSafe();
+
+    if ('IntersectionObserver' in window && heroSection) {
+      const heroVideoObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              playSafe();
+            } else if (!heroBgVideo.paused) {
+              heroBgVideo.pause();
+            }
+          });
+        },
+        { threshold: 0.05 }
+      );
+      heroVideoObserver.observe(heroSection);
+    }
+  }
+}
+
+

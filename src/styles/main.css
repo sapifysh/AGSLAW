@@ -740,8 +740,8 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   overflow: hidden;
 }
 
-.hero-bg-picture {
-  display: block;
+.hero-bg-media {
+  position: relative;
   width: 100%;
   height: 100%;
   transform: translate3d(0, calc(var(--hero-progress, 0) * 32px), 0)
@@ -749,13 +749,30 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   transform-origin: center center;
 }
 
-.hero-bg-img {
+.hero-bg-picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-bg-img,
+.hero-bg-video {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 68% 42%;
-  dynamic-range-limit: high;
+  object-position: 68% 24%;
+}
+
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.hero-bg-video.is-ready {
+  opacity: 1;
 }
 
 .hero-scrim {
@@ -2193,6 +2210,7 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
     transition: none;
   }
 
+  .hero-bg-media,
   .hero-bg-picture,
   .hero-content,
   .hero-metrics,
@@ -2200,6 +2218,10 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
   .site-header.is-scrolled {
     transform: none !important;
     opacity: 1 !important;
+  }
+
+  .hero-bg-video {
+    display: none;
   }
 
   .card,
@@ -2270,26 +2292,27 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
     display: none;
   }
 
-  .hero-bg-img {
-    object-position: 82% 42%;
+  .hero-bg-img,
+  .hero-bg-video {
+    object-position: 64% 22%;
   }
 
   .hero-scrim {
     background:
       linear-gradient(
         90deg,
-        rgba(12, 15, 20, 0.9) 0%,
-        rgba(13, 16, 22, 0.78) 36%,
-        rgba(14, 18, 24, 0.42) 56%,
-        rgba(15, 18, 24, 0.08) 78%,
-        rgba(15, 18, 24, 0.14) 100%
+        rgba(12, 15, 20, 0.94) 0%,
+        rgba(13, 16, 22, 0.84) 36%,
+        rgba(14, 18, 24, 0.52) 56%,
+        rgba(15, 18, 24, 0.2) 78%,
+        rgba(15, 18, 24, 0.28) 100%
       ),
       linear-gradient(
         180deg,
-        rgba(12, 15, 20, 0.42) 0%,
-        rgba(12, 15, 20, 0.02) 26%,
-        rgba(12, 15, 20, 0.14) 70%,
-        rgba(11, 14, 19, 0.68) 100%
+        rgba(12, 15, 20, 0.48) 0%,
+        rgba(12, 15, 20, 0.08) 26%,
+        rgba(12, 15, 20, 0.2) 70%,
+        rgba(11, 14, 19, 0.74) 100%
       );
   }
 
@@ -2424,8 +2447,9 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
     width: 100%;
   }
 
-  .hero-bg-img {
-    object-position: right 44%;
+  .hero-bg-img,
+  .hero-bg-video {
+    object-position: 62% 20%;
   }
 
   .hero-content {
