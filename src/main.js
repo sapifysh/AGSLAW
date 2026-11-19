@@ -352,7 +352,8 @@ function updateScrollChoreography() {
     const isDarkBackdrop = currentSurface
       ? currentSurface.classList.contains('hero') ||
         currentSurface.classList.contains('site-footer') ||
-        currentSurface.classList.contains('motto-banner')
+        currentSurface.classList.contains('motto-banner') ||
+        currentSurface.classList.contains('section-cta')
       : false;
 
     siteHeader.classList.toggle('is-over-dark', isDarkBackdrop);
