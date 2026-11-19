@@ -1654,90 +1654,6 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
 }
 
 /* ==========================================================================
-   05. EDITORIAL VISUAL BREAK — MONUMENTAL MOTTO BANNER
-   ========================================================================== */
-.motto-banner {
-  position: relative;
-  overflow: hidden;
-  padding-block: 76px;
-  background: linear-gradient(180deg, #0f1319 0%, #0b0e13 100%);
-  border-top: 1px solid rgba(212, 180, 114, 0.22);
-  border-bottom: 1px solid rgba(212, 180, 114, 0.22);
-  color: #faf9f6;
-}
-
-.motto-banner-watermark {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  color: rgba(212, 180, 114, 0.065);
-}
-
-.motto-banner-watermark svg {
-  width: min(360px, 78vw);
-  height: min(360px, 78vw);
-}
-
-.motto-banner-inner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 18px;
-}
-
-.motto-seal {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.motto-seal-line {
-  width: 44px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(212, 180, 114, 0), rgba(212, 180, 114, 0.72), rgba(212, 180, 114, 0));
-}
-
-.motto-seal-diamond {
-  width: 8px;
-  height: 8px;
-  background-color: var(--color-gold-bright);
-  transform: rotate(45deg);
-  box-shadow: 0 0 12px rgba(212, 180, 114, 0.5);
-}
-
-.motto-statement {
-  font-family: var(--font-sans);
-  font-size: clamp(1.75rem, 2.8vw, 2.625rem);
-  font-weight: 300;
-  line-height: 1.12;
-  letter-spacing: -0.04em;
-  color: #faf9f6;
-  max-width: 880px;
-}
-
-.motto-statement-accent {
-  background: linear-gradient(96deg, #e86f66 0%, #df9e52 52%, #e8cb8b 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.motto-sub {
-  font-family: var(--font-sans);
-  font-size: 0.8125rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(226, 229, 234, 0.68);
-}
-
-/* ==========================================================================
    06. PROFIL TIM — EDITORIAL ADVOCATE FEATURE
    ========================================================================== */
 .team-feature {
@@ -2452,10 +2368,6 @@ html[data-theme='dark'] .theme-toggle .icon-theme--moon {
     border-left: 1px solid var(--color-gold);
   }
 
-  .motto-banner {
-    padding-block: 96px;
-  }
-
   .team-feature {
     grid-template-columns: 240px 1fr;
     padding: 44px 48px;
@@ -2790,12 +2702,6 @@ html[data-theme='dark'] .section-navy {
   background: #10141b;
   border-top-color: rgba(212, 180, 114, 0.2);
   color: #faf9f6;
-}
-
-html[data-theme='dark'] .motto-banner {
-  background: #080a0e;
-  border-top-color: rgba(212, 180, 114, 0.2);
-  border-bottom-color: rgba(212, 180, 114, 0.2);
 }
 
 /* Preserving Hero Courthouse Photography Over Both Modes */
